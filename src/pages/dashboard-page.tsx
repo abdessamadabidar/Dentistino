@@ -16,8 +16,8 @@ import {
 
 import { YearRevenueStatistics } from "@/components/dashboard/year-revenue-statistics"
 import { WaitingRoom } from "@/components/dashboard/waiting-room"
-import { UserNav } from "@/components/dashboard/user-nav"
-import Sidebar from "@/components/dashboard/sidebar";
+import { UserNav } from "@/components/user-nav.tsx"
+import Sidebar from "@/components/sidebar.tsx";
 import {ResizableHandle, ResizablePanel, ResizablePanelGroup} from "@/components/ui/resizable"
 import WeekRevenueStatistics from "@/components/dashboard/week-revenue-statistics";
 import MonthRevenueStatistics from "@/components/dashboard/month-revenue-statistics";
