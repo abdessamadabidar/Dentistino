@@ -1,18 +1,12 @@
 
-import {
-	Avatar,
-	AvatarFallback,
-	AvatarImage,
-} from "@/components/ui/avatar.tsx"
+
 import { Button } from "@/components/ui/button.tsx"
 import {
 	DropdownMenu,
 	DropdownMenuContent,
-	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
-	DropdownMenuShortcut,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu.tsx"
 
@@ -20,43 +14,30 @@ export function UserNav() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="ghost" className="relative h-8 w-8 rounded-full">
-					<Avatar className="h-8 w-8">
-						<AvatarImage src="/avatars/01.png" alt="@shadcn" />
-						<AvatarFallback>SC</AvatarFallback>
-					</Avatar>
+				<Button
+					variant="outline"
+					size="icon"
+					className="overflow-hidden rounded-full focus-visible:ring-offset-0 focus-visible:ring-1"
+				>
+					{/*<Image*/}
+					{/*	src="/placeholder-user.jpg"*/}
+					{/*	width={36}*/}
+					{/*	height={36}*/}
+					{/*	alt="Avatar"*/}
+					{/*	className="overflow-hidden"*/}
+					{/*/>*/}
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+						<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+					</svg>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="w-56" align="end" forceMount>
-				<DropdownMenuLabel className="font-normal">
-					<div className="flex flex-col space-y-1">
-						<p className="text-sm font-medium leading-none">shadcn</p>
-						<p className="text-xs leading-none text-muted-foreground">
-							m@example.com
-						</p>
-					</div>
-				</DropdownMenuLabel>
+			<DropdownMenuContent align="end">
+				<DropdownMenuLabel>Mina Abidar</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuGroup>
-					<DropdownMenuItem>
-						Profile
-						<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-					</DropdownMenuItem>
-					<DropdownMenuItem>
-						Billing
-						<DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-					</DropdownMenuItem>
-					<DropdownMenuItem>
-						Settings
-						<DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-					</DropdownMenuItem>
-					<DropdownMenuItem>New Team</DropdownMenuItem>
-				</DropdownMenuGroup>
+				<DropdownMenuItem>Settings</DropdownMenuItem>
+				<DropdownMenuItem>Support</DropdownMenuItem>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>
-					Log out
-					<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-				</DropdownMenuItem>
+				<DropdownMenuItem className="text-destructive focus:text-destructive">Deconnexion</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)
