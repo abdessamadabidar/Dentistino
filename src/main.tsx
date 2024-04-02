@@ -6,6 +6,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import AuthenticationPage from "@/pages/authentication-page";
 import DashboardPage from "@/pages/dashboard-page";
 import AddPatientPage from "@/pages/add-patient-page.tsx";
+import PatientsPage from "@/pages/patients-page.tsx";
 
 
 
@@ -19,8 +20,12 @@ const router = createBrowserRouter([
         element: <DashboardPage />
     },
     {
-        path: '/',
+        path: '/add-patient',
         element: <AddPatientPage />
+    },
+    {
+        path: '/patients',
+        element: <PatientsPage />
     },
 
 ])
