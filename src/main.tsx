@@ -7,6 +7,7 @@ import AuthenticationPage from "@/pages/authentication-page";
 import DashboardPage from "@/pages/dashboard-page";
 import AddPatientPage from "@/pages/add-patient-page.tsx";
 import PatientsPage from "@/pages/patients-page.tsx";
+import AppointmentsPage from "@/pages/appointments-page.tsx";
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     {
         path: '/patients',
         element: <PatientsPage />
+    },
+    {
+        path: '/appointments',
+        element: <AppointmentsPage />
     },
 
 ])

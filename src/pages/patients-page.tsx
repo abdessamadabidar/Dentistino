@@ -36,7 +36,7 @@ export default function PatientsPage() : JSX.Element {
 										</svg>
 										Tous les patients
 									</CardTitle>
-									<CardDescription className="ml-8">Saisir avec précision toutes les informations requises sur le patient</CardDescription>
+									<CardDescription className="ml-8">Tous les patients de votre cabinet dentaire</CardDescription>
 								</CardHeader>
 								<CardContent className="px-14">
 									<DataTable columns={columns} data={patients} />
