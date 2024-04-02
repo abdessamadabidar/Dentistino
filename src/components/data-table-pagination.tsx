@@ -18,12 +18,12 @@ export function DataTablePagination<TData>({table,}: DataTablePaginationProps<TD
 	return (
 		<div className="flex items-center justify-between px-2">
 			<div className="flex-1 text-sm text-muted-foreground">
-				{table.getFilteredSelectedRowModel().rows.length} of{" "}
-				{table.getFilteredRowModel().rows.length} row(s) selected.
+				{table.getFilteredSelectedRowModel().rows.length} sur{" "}
+				{table.getFilteredRowModel().rows.length} ligne(s) sélectionnée(s).
 			</div>
 			<div className="flex items-center space-x-6 lg:space-x-8">
 				<div className="flex items-center space-x-2">
-					<p className="text-sm font-medium">Rows per page</p>
+					<p className="text-sm font-medium">lignes par page</p>
 					<Select
 						value={`${table.getState().pagination.pageSize}`}
 						onValueChange={(value) => {
@@ -43,7 +43,7 @@ export function DataTablePagination<TData>({table,}: DataTablePaginationProps<TD
 					</Select>
 				</div>
 				<div className="flex w-[100px] items-center justify-center text-sm font-medium">
-					Page {table.getState().pagination.pageIndex + 1} of{" "}
+					Page {table.getState().pagination.pageIndex + 1} sur{" "}
 					{table.getPageCount()}
 				</div>
 				<div className="flex items-center space-x-2">
@@ -53,7 +53,7 @@ export function DataTablePagination<TData>({table,}: DataTablePaginationProps<TD
 						onClick={() => table.setPageIndex(0)}
 						disabled={!table.getCanPreviousPage()}
 					>
-						<span className="sr-only">Go to first page</span>
+						<span className="sr-only">Retour à la première page</span>
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 							<path strokeLinecap="round" strokeLinejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
 						</svg>
@@ -64,7 +64,7 @@ export function DataTablePagination<TData>({table,}: DataTablePaginationProps<TD
 						onClick={() => table.previousPage()}
 						disabled={!table.getCanPreviousPage()}
 					>
-						<span className="sr-only">Go to previous page</span>
+						<span className="sr-only">Retour à la page précédente</span>
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
 						</svg>
@@ -75,7 +75,7 @@ export function DataTablePagination<TData>({table,}: DataTablePaginationProps<TD
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
 					>
-						<span className="sr-only">Go to next page</span>
+						<span className="sr-only">Aller à la page suivante</span>
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 							<path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
 						</svg>
@@ -86,7 +86,7 @@ export function DataTablePagination<TData>({table,}: DataTablePaginationProps<TD
 						onClick={() => table.setPageIndex(table.getPageCount() - 1)}
 						disabled={!table.getCanNextPage()}
 					>
-						<span className="sr-only">Go to last page</span>
+						<span className="sr-only">Aller à la dernière page</span>
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 							<path strokeLinecap="round" strokeLinejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
 						</svg>

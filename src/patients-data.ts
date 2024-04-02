@@ -3,7 +3,7 @@ type Patient = {
 	recordNo: string,
 	firstName: string,
 	lastName: string,
-	status: "served" | "pending",
+	status: "servi" | "en cours",
 	gender: "Homme" | "Femme",
 	registeredDate: string,
 }
@@ -14,7 +14,7 @@ export const patients: Patient[] = [
 		recordNo: "20240212a78",
 		firstName: "Said",
 		lastName: "Elkamali",
-		status: "served",
+		status: "servi",
 		gender: "Homme",
 		registeredDate: "2023-07-12 10:42 AM"
 	},
@@ -23,7 +23,7 @@ export const patients: Patient[] = [
 		recordNo: "20240242ca8",
 		firstName: "Rabii",
 		lastName: "Ghabouh",
-		status: "pending",
+		status: "en cours",
 		gender: "Homme",
 		registeredDate: "2023-07-12 10:42 AM"
 	},
@@ -32,7 +32,7 @@ export const patients: Patient[] = [
 		recordNo: "202402s48a78",
 		firstName: "Brahim",
 		lastName: "Diaz",
-		status: "served",
+		status: "en cours",
 		gender: "Homme",
 		registeredDate: "2023-07-12 10:42 AM"
 	},
@@ -41,7 +41,7 @@ export const patients: Patient[] = [
 		recordNo: "20240212a78",
 		firstName: "Meryem",
 		lastName: "Ezzyani",
-		status: "pending",
+		status: "servi",
 		gender: "Femme",
 		registeredDate: "2023-07-12 10:42 AM"
 	}

@@ -1,4 +1,8 @@
 "use client"
+import {
+	CheckCircledIcon,
+	StopwatchIcon,
+} from "@radix-ui/react-icons"
 
 import {
 	ColumnDef, ColumnFiltersState,
@@ -19,6 +23,7 @@ import React from "react";
 import {Input} from "@/components/ui/input.tsx";
 import {DataTablePagination} from "@/components/data-table-pagination.tsx";
 import {DataTableViewOptions} from "@/components/data-table-view-options.tsx";
+import {DataTableFacetedFilter} from "@/components/data-table-faceted-filter.tsx";
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[]
@@ -27,9 +32,8 @@ interface DataTableProps<TData, TValue> {
 
 export function DataTable<TData, TValue>({columns, data,}: DataTableProps<TData, TValue>) {
 	const [sorting, setSorting] = React.useState<SortingState>([])
-	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-		[]
-	)
+	const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+	const [globalFilter, setGlobalFilter] = React.useState('')
 	const table = useReactTable({
 		data,
 		columns,
@@ -42,23 +46,43 @@ export function DataTable<TData, TValue>({columns, data,}: DataTableProps<TData,
 		state: {
 			sorting,
 			columnFilters,
+			globalFilter,
 		}
 	})
 
 	return (
 		<div>
-			<div className="flex items-center justify-between flex-nowrap">
-				<div className="flex items-center py-4">
-					<Input
-						placeholder="Filter emails..."
-						value={(table.getColumn("recordNo")?.getFilterValue() as string) ?? ""}
-						onChange={(event) =>
-							table.getColumn("recordNo")?.setFilterValue(event.target.value)
-						}
-						className="max-w-lg"
-					/>
+			<div className="flex items-center justify-between flex-nowrap py-4">
+				<Input
+					placeholder="Recherche..."
+					value={globalFilter ?? ""}
+					onChange={(event) =>
+						setGlobalFilter(event.target.value)
+					}
+					className="max-w-md"
+				/>
+				<div className="flex flex-nowrap items-center gap-x-2">
+					{table.getColumn("status") && (
+						<DataTableFacetedFilter
+							column={table.getColumn("status")}
+							title="Status"
+							options={[
+								{
+									label: "servi",
+									value: "servi",
+									icon: CheckCircledIcon
+								},
+								{
+									label: "en cours",
+									value: "en cours",
+									icon: StopwatchIcon
+								}
+							]}
+						/>
+					)}
+					<DataTableViewOptions table={table} />
+
 				</div>
-				<DataTableViewOptions table={table} />
 			</div>
 			<div className="rounded-md border mb-4">
 				<Table>
@@ -97,7 +121,7 @@ export function DataTable<TData, TValue>({columns, data,}: DataTableProps<TData,
 						) : (
 							<TableRow>
 								<TableCell colSpan={columns.length} className="h-24 text-center">
-									No results.
+									Aucun résultat.
 								</TableCell>
 							</TableRow>
 						)}

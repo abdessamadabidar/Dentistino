@@ -762,11 +762,11 @@ export default function AddPatientPage(): JSX.Element {
 																	</TableHeader>
 																	<TableBody>
 																		{toothFields.map((field, index) => (
-																			<TableRow>
+																			<TableRow key={field.id}>
 																				<TableCell>
 																					<FormField
 																						control={patientForm.control}
-																						key={field.id}
+
 																						name={`teeth.${index}.date`}
 																						render={({ field }) => (
 																							<FormItem>
