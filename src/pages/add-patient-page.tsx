@@ -40,6 +40,8 @@ import {
 	DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu.tsx";
 import {ToggleGroup, ToggleGroupItem} from "@/components/ui/toggle-group.tsx";
+import {CaretSortIcon, CheckIcon} from "@radix-ui/react-icons";
+import {Label} from "@/components/ui/label.tsx";
 
 
 
@@ -55,8 +57,6 @@ const cities: string[] = [
 	"Fes",
 	"Ouarzazate",
 	"Merzouga",
-	"Essaouira",
-
 ];
 
 
@@ -109,7 +109,32 @@ const PatientFormSchema = z.object({
 	gender: z.string(),
 	addressedBy: z.string().optional(),
 	mutual: z.string(),
-	treatingDoctor: z.string().optional(),
+	parent: z.object({
+		fullName: z.string(),
+		relation: z.string(),
+	}).optional(),
+	treatingDoctors: z.array(
+		z.object({
+			firstName: z.string({
+				required_error: "Le prénom est requis.",
+				invalid_type_error: "Le prénom doit être une chaîne de caractères.",
+			})
+				.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
+				.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'}),
+			lastName: z.string({
+				required_error: "Le nom est requis.",
+				invalid_type_error: "Le nom doit être une chaîne de caractères.",
+			})
+				.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
+				.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'}),
+			phone: z.string({
+				required_error: "Numéro de téléphone est requis.",
+			})
+				.min(10, {message:'Le numéro de téléphone doit contenir au moins 10 caractères.'})
+				.max(13, {message: 'Le numéro de téléphone ne doit pas dépasser 13 caractères.'})
+				.regex(new RegExp('^\\+?\\d{1,3}\\d{1,9}$'), {message: 'Le numéro de téléphone est invalid.'}),
+		})
+	).optional(),
 	pathologies: z
 		.array(
 			z.object({
@@ -189,6 +214,10 @@ export default function AddPatientPage(): JSX.Element {
 	})
 	const { fields: toothFields, append: appendTooth, remove: removehooth } = useFieldArray({
 		name: "teeth",
+		control: patientForm.control,
+	})
+	const { fields: treatingDoctorField, append: appendTreatingDoctor, remove: removeTreatingDoctor } = useFieldArray({
+		name: "treatingDoctors",
 		control: patientForm.control,
 	})
 
@@ -322,6 +351,44 @@ export default function AddPatientPage(): JSX.Element {
 													/>
 													<FormField
 														control={patientForm.control}
+														name={`parent.fullName`}
+														render={({ field }) => (
+															<FormItem>
+																<FormLabel>Tuteur</FormLabel>
+																<FormControl>
+																	<Input placeholder="Nom complet" type="text" {...field}  />
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
+													<FormField
+														control={patientForm.control}
+														name={`parent.relation`}
+														render={({ field }) => (
+															<FormItem>
+																<FormLabel>Lien</FormLabel>
+																<FormControl>
+																	<Select
+																		{...field}
+																	>
+																		<SelectTrigger className="text-muted-foreground">
+																			<SelectValue placeholder="Relation" />
+																		</SelectTrigger>
+																		<SelectContent>
+																			<SelectItem value="father">Père</SelectItem>
+																			<SelectItem value="mother">Mère</SelectItem>
+																			<SelectItem value="sister">Soeur</SelectItem>
+																			<SelectItem value="brother">Frère</SelectItem>
+																		</SelectContent>
+																	</Select>
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
+													<FormField
+														control={patientForm.control}
 														name="address"
 														render={({ field }) => (
 															<FormItem>
@@ -337,7 +404,7 @@ export default function AddPatientPage(): JSX.Element {
 														control={patientForm.control}
 														name="city"
 														render={({ field }) => (
-															<FormItem>
+															<FormItem className="flex flex-col justify-end">
 																<FormLabel>Ville</FormLabel>
 																<Popover>
 																	<PopoverTrigger asChild>
@@ -346,7 +413,7 @@ export default function AddPatientPage(): JSX.Element {
 																				variant="outline"
 																				role="combobox"
 																				className={cn(
-																					"w-full justify-between font-normal",
+																					"justify-between font-normal",
 																					!field.value && "text-muted-foreground"
 																				)}
 																			>
@@ -354,42 +421,38 @@ export default function AddPatientPage(): JSX.Element {
 																					? cities.find(
 																						(city) => city === field.value
 																					)
-																					: "Sélectionner la ville"}
-																				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-2 h-4 w-4 shrink-0 opacity-50">
-																					<path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-																				</svg>
-
+																					: "Sélectionner une ville"}
+																				<CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 																			</Button>
 																		</FormControl>
 																	</PopoverTrigger>
-																	<PopoverContent className="w-full p-0">
-																		<Command className="w-full">
-																			<CommandInput placeholder="Rechercher une ville..." />
-																			<CommandEmpty>Aucune ville n'est trouvée.</CommandEmpty>
+																	<PopoverContent className="p-0">
+																		<Command>
+																			<CommandInput
+																				placeholder="Rechercher une ville..."
+																				className="h-9"
+																			/>
+																			<CommandEmpty>No framework found.</CommandEmpty>
 																			<CommandGroup>
-																				{cities.map((city: string, index: number) => {
-																					return (
-																						<CommandItem
-																							value={city}
-																							key={index}
-																							onSelect={() => {
-																								patientForm.setValue("city", city)
-																							}}
-																						>
-																							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={cn(
-																								"mr-2 h-4 w-4",
+																				{cities.map((city, index) => (
+																					<CommandItem
+																						value={city}
+																						key={index}
+																						onSelect={() => {
+																							patientForm.setValue("city", city)
+																						}}
+																					>
+																						{city}
+																						<CheckIcon
+																							className={cn(
+																								"ml-auto h-4 w-4",
 																								city === field.value
 																									? "opacity-100"
 																									: "opacity-0"
-																							)}>
-																								<path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-																							</svg>
-
-
-																							{city}
-																						</CommandItem>
-																					)
-																				})}
+																							)}
+																						/>
+																					</CommandItem>
+																				))}
 																			</CommandGroup>
 																		</Command>
 																	</PopoverContent>
@@ -424,7 +487,7 @@ export default function AddPatientPage(): JSX.Element {
 																		{...field}
 																	>
 																		<SelectTrigger>
-																			<SelectValue placeholder="Sélectionner la mutuelle" />
+																			<SelectValue placeholder="Sélectionner la mutuelle">{field.value}</SelectValue>
 																		</SelectTrigger>
 																		<SelectContent>
 																			<SelectItem value="draft">Draft</SelectItem>
@@ -437,32 +500,7 @@ export default function AddPatientPage(): JSX.Element {
 															</FormItem>
 														)}
 													/>
-													<FormField
-														control={patientForm.control}
-														name="treatingDoctor"
-														render={({ field }) => (
-															<FormItem>
-																<FormLabel>Tuteur</FormLabel>
-																<FormControl>
-																	<Input type="text" {...field}  />
-																</FormControl>
-																<FormMessage />
-															</FormItem>
-														)}
-													/>
-													<FormField
-														control={patientForm.control}
-														name="treatingDoctor"
-														render={({ field }) => (
-															<FormItem>
-																<FormLabel>Lien</FormLabel>
-																<FormControl>
-																	<Input type="text" {...field}  />
-																</FormControl>
-																<FormMessage />
-															</FormItem>
-														)}
-													/>
+
 													<FormField
 														control={patientForm.control}
 														name="gender"
@@ -519,22 +557,7 @@ export default function AddPatientPage(): JSX.Element {
 															</FormItem>
 														)}
 													/>
-
-
-
-													<FormField
-														control={patientForm.control}
-														name="treatingDoctor"
-														render={({ field }) => (
-															<FormItem>
-																<FormLabel>Médecin traitant</FormLabel>
-																<FormControl>
-																	<Input type="text" {...field}  />
-																</FormControl>
-																<FormMessage />
-															</FormItem>
-														)}
-													/>
+													<div />
 
 													<div>
 														{pathologyFields.map((field, index) => (
@@ -708,7 +731,83 @@ export default function AddPatientPage(): JSX.Element {
 															Ajouter une allergie
 														</Button>
 													</div>
-
+													{/* TODO - add multiple medcine traitants */}
+													<div className="col-span-2 space-y-2">
+														<Label>Médecin traitant</Label>
+														<Card>
+															<CardContent className=" px-0">
+																<Table>
+																	<TableHeader>
+																		<TableRow>
+																			<TableHead>Prénom</TableHead>
+																			<TableHead>Nom</TableHead>
+																			<TableHead>Téléphone</TableHead>
+																		</TableRow>
+																	</TableHeader>
+																	<TableBody>
+																		{treatingDoctorField.map((field, index) => (
+																			<TableRow key={field.id}>
+																				<TableCell>
+																					<FormField
+																						control={patientForm.control}
+																						name={`treatingDoctors.${index}.firstName`}
+																						render={({field}) => (
+																							<FormItem>
+																								<FormControl>
+																									<Input type="text" {...field} />
+																								</FormControl>
+																							</FormItem>
+																						)}
+																					/>
+																				</TableCell>
+																				<TableCell>
+																					<FormField
+																						control={patientForm.control}
+																						name={`treatingDoctors.${index}.lastName`}
+																						render={({field}) => (
+																							<FormItem>
+																								<FormControl>
+																									<Input type="text" {...field} />
+																								</FormControl>
+																							</FormItem>
+																						)}
+																					/>
+																				</TableCell>
+																				<TableCell>
+																					<FormField
+																						control={patientForm.control}
+																						name={`treatingDoctors.${index}.phone`}
+																						render={({field}) => (
+																							<FormItem>
+																								<FormControl>
+																									<Input type="text" {...field} />
+																								</FormControl>
+																							</FormItem>
+																						)}
+																					/>
+																				</TableCell>
+																				<TableCell>
+																					<Button type="button" variant="outline" className="focus-visible:ring-0  px-3 text-destructive hover:text-destructive" onClick={() => removeTreatingDoctor(index)}>
+																						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+																							<path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+																						</svg>
+																					</Button>
+																				</TableCell>
+																			</TableRow>
+																		))}
+																	</TableBody>
+																</Table>
+															</CardContent>
+															<CardFooter className="justify-center border-t py-2">
+																<Button type="button"  variant="ghost" className="gap-1" onClick={() => appendTreatingDoctor({firstName: "", lastName: "", phone: ""})}>
+																	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+																		<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+																	</svg>
+																	Ajouter
+																</Button>
+															</CardFooter>
+														</Card>
+													</div>
 													<FormField
 														control={patientForm.control}
 														name="comment"
@@ -754,7 +853,7 @@ export default function AddPatientPage(): JSX.Element {
 																		<TableRow>
 																			<TableHead className="w-[200px]">Date</TableHead>
 																			<TableHead>Dent</TableHead>
-																			<TableHead className="w-[300px]">Observation</TableHead>
+																			<TableHead className="w-[350px]">Observation</TableHead>
 																			<TableHead className="">Prix</TableHead>
 																			<TableHead className="">Reçu</TableHead>
 																			<TableHead className="">Reste</TableHead>
@@ -766,7 +865,6 @@ export default function AddPatientPage(): JSX.Element {
 																				<TableCell>
 																					<FormField
 																						control={patientForm.control}
-
 																						name={`teeth.${index}.date`}
 																						render={({ field }) => (
 																							<FormItem>

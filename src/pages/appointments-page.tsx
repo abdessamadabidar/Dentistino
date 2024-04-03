@@ -4,13 +4,15 @@ import {ModeToggle} from "@/components/Theme/mode-toggle.tsx";
 import {UserNav} from "@/components/user-nav.tsx";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {DataTable} from "@/components/data-table.tsx";
-import {columns} from "@/patient-columns.tsx";
-import {patients} from "@/patients-data.ts";
+import {columns} from "@/components/data-table-columns/appointment-columns.tsx";
+import {appointments} from "@/data/appointments-data.ts";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs.tsx";
 import {Button} from "@/components/ui/button.tsx";
 
 
+
 export default function AppointmentsPage() : JSX.Element {
+
 
 	return (
 		<main className="w-full">
@@ -30,7 +32,7 @@ export default function AppointmentsPage() : JSX.Element {
 							</div>
 						</div>
 						<div className="flex-1 space-y-4 p-8 pt-6">
-							<Tabs defaultValue="overview" className="space-y-4">
+							<Tabs defaultValue="all" className="space-y-4">
 								<TabsList>
 									<TabsTrigger value="all">Tous</TabsTrigger>
 									<TabsTrigger value="today" >
@@ -47,17 +49,17 @@ export default function AppointmentsPage() : JSX.Element {
 													</svg>
 													Rendez-vous
 												</CardTitle>
-												<CardDescription className="ml-8">Tous les patients prévus pour la consultation</CardDescription>
+												<CardDescription className="ml-8 mt-2">Tous les patients prévus pour la consultation</CardDescription>
 											</div>
-											<Button size="sm" variant="default" className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary">
-												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-													<path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+											<Button size="sm" className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-5">
+													<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 9v10a2 2 0 0 0 2 2h6M4 9V7a2 2 0 0 1 2-2h2M4 9h16m0 0V7a2 2 0 0 0-2-2h-2m4 4v3m-4-7V3m0 2H8m0-2v2m11 11v3m0 3v-3m0 0h3m-3 0h-3"></path>
 												</svg>
-												Ajouter patient
+												Nouveau rendez-vous
 											</Button>
 										</CardHeader>
 										<CardContent className="px-14">
-											<DataTable columns={columns} data={patients} />
+											<DataTable columns={columns} data={appointments} />
 										</CardContent>
 									</Card>
 								</TabsContent>
@@ -73,7 +75,7 @@ export default function AppointmentsPage() : JSX.Element {
 											<CardDescription className="ml-8">Tous les patients programmés pour une consultation aujourd'hui</CardDescription>
 										</CardHeader>
 										<CardContent className="px-14">
-											<DataTable columns={columns} data={patients} />
+											<DataTable columns={columns} data={appointments} />
 										</CardContent>
 									</Card>
 								</TabsContent>

@@ -12,8 +12,8 @@ export const patients: Patient[] = [
 	{
 		id: 1,
 		recordNo: "20240212a78",
-		firstName: "Said",
-		lastName: "Elkamali",
+		firstName: "Youssef",
+		lastName: "en-nesyri",
 		status: "servi",
 		gender: "Homme",
 		registeredDate: "2023-07-12 10:42 AM"
@@ -21,8 +21,8 @@ export const patients: Patient[] = [
 	{
 		id: 2,
 		recordNo: "20240242ca8",
-		firstName: "Rabii",
-		lastName: "Ghabouh",
+		firstName: "Hakim",
+		lastName: "ziyach",
 		status: "en cours",
 		gender: "Homme",
 		registeredDate: "2023-07-12 10:42 AM"
@@ -39,8 +39,8 @@ export const patients: Patient[] = [
 	{
 		id: 4,
 		recordNo: "20240212a78",
-		firstName: "Meryem",
-		lastName: "Ezzyani",
+		firstName: "Saadia",
+		lastName: "Abidar",
 		status: "servi",
 		gender: "Femme",
 		registeredDate: "2023-07-12 10:42 AM"

@@ -8,6 +8,8 @@ import DashboardPage from "@/pages/dashboard-page";
 import AddPatientPage from "@/pages/add-patient-page.tsx";
 import PatientsPage from "@/pages/patients-page.tsx";
 import AppointmentsPage from "@/pages/appointments-page.tsx";
+import WaitingRoomPage from "@/pages/waiting-room-page.tsx";
+
 
 
 
@@ -32,6 +34,11 @@ const router = createBrowserRouter([
         path: '/appointments',
         element: <AppointmentsPage />
     },
+    {
+        path: '/waiting-room',
+        element: <WaitingRoomPage />
+    },
+
 
 ])
 
