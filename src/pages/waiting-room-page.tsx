@@ -6,14 +6,61 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/compo
 import {DataTable} from "@/components/data-table.tsx";
 import {columns} from "@/components/data-table-columns/patients-waiting-room-columns.tsx";
 import {patients} from "@/data/patients-data.ts";
-import PatientsDialog from "@/components/patients-dialog.tsx";
+import SelectPatientDialog from "@/components/select-patient-dialog.tsx";
+import {useForm} from "react-hook-form";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {z} from "zod";
+import {Form, FormControl, FormField, FormItem} from "@/components/ui/form.tsx";
+import {useEffect} from "react";
+import {useToast} from "@/components/ui/use-toast";
 
 
+const FormSchema = z.object({
+	patientId: z.number({
+		required_error: "Veuillez sélectionner un patient.",
+	}),
+})
 
+type FormSchemaType = z.infer<typeof FormSchema>
 export default function WaitingRoomPage() : JSX.Element {
+	const {toast} = useToast()
 
-	// const [patientsState, setPatientsState] = useState(patients);
+	const form = useForm<FormSchemaType>({
+		resolver: zodResolver(FormSchema),
+	})
 
+	const {errors} = form.formState;
+	const onSubmit = (data: FormSchemaType) => {
+		console.log (data.patientId + " submitted")
+	};
+
+
+	useEffect(() => {
+		if (errors.patientId) {
+			toast({
+				variant: "destructive",
+				description: `${errors.patientId?.message}`,
+			})
+		}
+
+	}, [errors.patientId]);
+
+	const handlePatientSelectionConfirm = (id: number | undefined) => {
+		if (id) {
+			form.setValue( "patientId", id);
+			form.handleSubmit(onSubmit)();
+		}
+		else {
+			form.setError(
+				'patientId',
+				{
+					type: 'required',
+					message: 'Veuillez sélectionner un patient.'
+				}
+			)
+		}
+
+	}
 
 	return (
 		<main className="w-full">
@@ -45,7 +92,21 @@ export default function WaitingRoomPage() : JSX.Element {
 										</CardTitle>
 										<CardDescription className="ml-8 mt-2">Tous les patients qui se trouvent dans la salle d'attente</CardDescription>
 									</div>
-									<PatientsDialog />
+									<Form {...form}>
+										<form>
+											<FormField
+												control={form.control}
+												name="patientId"
+												render={() => (
+													<FormItem >
+														<FormControl>
+															<SelectPatientDialog onConfirm={handlePatientSelectionConfirm} />
+														</FormControl>
+													</FormItem>
+												)}
+											/>
+										</form>
+									</Form>
 								</CardHeader>
 								<CardContent className="px-14">
 									<DataTable columns={columns} data={patients} />

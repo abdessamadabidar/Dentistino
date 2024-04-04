@@ -9,6 +9,7 @@ import AddPatientPage from "@/pages/add-patient-page.tsx";
 import PatientsPage from "@/pages/patients-page.tsx";
 import AppointmentsPage from "@/pages/appointments-page.tsx";
 import WaitingRoomPage from "@/pages/waiting-room-page.tsx";
+import {Toaster} from "@/components/ui/toaster.tsx";
 
 
 
@@ -46,6 +47,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <ThemeProvider>
             <RouterProvider router={router} />
+            <Toaster />
         </ThemeProvider>
     </React.StrictMode>,
 )

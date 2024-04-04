@@ -20,10 +20,10 @@ import {
 	TableRow,
 } from "@/components/ui/table"
 import React from "react";
-import {Input} from "@/components/ui/input.tsx";
 import {DataTablePagination} from "@/components/data-table-pagination.tsx";
 import {DataTableViewOptions} from "@/components/data-table-view-options.tsx";
 import {DataTableFacetedFilter} from "@/components/data-table-faceted-filter.tsx";
+import Search from "@/components/search.tsx";
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[]
@@ -50,16 +50,18 @@ export function DataTable<TData, TValue>({columns, data,}: DataTableProps<TData,
 		}
 	})
 
+	const handleTableSearchInputChange = (query: string) => {
+		setGlobalFilter(query)
+	}
+
 	return (
 		<div>
 			<div className="flex items-center justify-between flex-nowrap py-4">
-				<Input
+				<Search
 					placeholder="Recherche..."
 					value={globalFilter ?? ""}
-					onChange={(event) =>
-						setGlobalFilter(event.target.value)
-					}
 					className="max-w-md"
+					onChange={handleTableSearchInputChange}
 				/>
 				<div className="flex flex-nowrap items-center gap-x-2">
 					{table.getColumn("status") && (
