@@ -11,9 +11,7 @@ import AppointmentsPage from "@/pages/appointments-page.tsx";
 import WaitingRoomPage from "@/pages/waiting-room-page.tsx";
 import {Toaster} from "@/components/ui/toaster.tsx";
 import VerificationPage from "@/pages/verification-page.tsx";
-
-
-
+import DefaultLayout from "@/components/default-layout.tsx";
 
 const router = createBrowserRouter([
     {
@@ -22,23 +20,29 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <DashboardPage />
-    },
-    {
-        path: '/add-patient',
-        element: <AddPatientPage />
-    },
-    {
-        path: '/patients',
-        element: <PatientsPage />
-    },
-    {
-        path: '/appointments',
-        element: <AppointmentsPage />
-    },
-    {
-        path: '/waiting-room',
-        element: <WaitingRoomPage />
+        element: <DefaultLayout/>,
+        children: [
+            {
+                path: '/',
+                element: <DashboardPage />
+            },
+            {
+                path: 'add-patient',
+                element: <AddPatientPage />
+            },
+            {
+                path: 'patients',
+                element: <PatientsPage />
+            },
+            {
+                path: 'appointments',
+                element: <AppointmentsPage />
+            },
+            {
+                path: 'waiting-room',
+                element: <WaitingRoomPage />
+            },
+        ]
     },
     {
         path: '/check',
