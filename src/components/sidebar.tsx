@@ -67,7 +67,9 @@ function Sidebar() {
 				</div>
 				<Separator />
 				<div className="flex flex-col gap-y-2 p-3">
-					<UserRoleDialog />
+					<div>
+						<UserRoleDialog />
+					</div>
 					<a className="flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 rounded-md hover:bg-muted cursor-pointer">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="size-5">
 							<g fill="none" stroke="currentColor" strokeWidth={3}>
