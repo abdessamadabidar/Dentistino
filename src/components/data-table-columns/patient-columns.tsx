@@ -7,26 +7,22 @@ import {
 } from "@/components/ui/dropdown-menu.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {DataTableColumnHeader} from "@/components/data-table-column-header.tsx";
+import {Badge} from "@/components/ui/badge.tsx";
+import {cn} from "@/lib/utils.ts";
 
 
 type Patient = {
 	id: number,
-	recordNo: string,
 	firstName: string,
 	lastName: string,
+	phone: string,
 	status: "servi" | "en cours",
-	gender: "Homme" | "Femme",
 	registeredDate: string,
 }
 
 
 export const columns: ColumnDef<Patient>[] = [
-	{
-		accessorKey: "recordNo",
-		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="N° Dossier" />
-		),
-	},
+
 	{
 		accessorKey: "firstName",
 		header: ({ column }) => (
@@ -40,16 +36,13 @@ export const columns: ColumnDef<Patient>[] = [
 		),
 	},
 	{
-		accessorKey: "status",
-		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Status" />
-		),
+		accessorKey: "phone",
+		header: 'Téléphone'
 	},
 	{
-		accessorKey: "gender",
-		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Sexe" />
-		),
+		accessorKey: "status",
+		header: 'Status',
+		cell: props => <Badge variant="outline" className={cn(props.getValue() === 'servi' && "bg-muted")} >{`${props.getValue()}`}</Badge>
 	},
 	{
 		accessorKey: "registeredDate",
