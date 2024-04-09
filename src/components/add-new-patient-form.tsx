@@ -90,6 +90,7 @@ const patientFormSchema = z.object({
 	dateOfBirth: z.date({
 		required_error: "Le date de naissance est requis.",
 	}),
+	profession: z.string().optional(),
 	gender: z.string({
 		required_error: "Le genre est requis."
 	}),
@@ -502,12 +503,24 @@ export default function AddNewPatientForm() {
 										</FormItem>
 									)}
 								/>
-
+								<FormField
+									control={patientForm.control}
+									name="profession"
+									render={({ field }) => (
+										<FormItem>
+											<FormLabel>Profession</FormLabel>
+											<FormControl>
+												<Input type="text"  {...field}/>
+											</FormControl>
+											<FormMessage className="text-xs font-normal" />
+										</FormItem>
+									)}
+								/>
 								<FormField
 									control={patientForm.control}
 									name="gender"
 									render={({ field }) => (
-										<FormItem className="space-y-3">
+										<FormItem className="space-y-3 col-span-2">
 											<FormLabel>Sexe</FormLabel>
 											<FormControl>
 												<RadioGroup
@@ -537,6 +550,7 @@ export default function AddNewPatientForm() {
 										</FormItem>
 									)}
 								/>
+
 							</div>
 						</div>
 						<div className="">

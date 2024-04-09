@@ -2,18 +2,21 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/compo
 import {DataTable} from "@/components/data-table.tsx";
 import {columns} from "@/components/data-table-columns/patients-waiting-room-columns.tsx";
 import {patients} from "@/data/patients-data.ts";
-import SelectPatientDialog from "@/components/select-patient-dialog.tsx";
+import SelectPatientDialog, {Patient} from "@/components/select-patient-dialog.tsx";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {Form, FormControl, FormField, FormItem} from "@/components/ui/form.tsx";
 import {useEffect} from "react";
 import {useToast} from "@/components/ui/use-toast";
+import {Button} from "@/components/ui/button.tsx";
 
 
 const FormSchema = z.object({
-	patientId: z.number({
-		required_error: "Veuillez sélectionner un patient.",
+	patient: z.object({
+		id: z.number(),
+		firstName: z.string(),
+		lastName: z.string()
 	}),
 })
 
@@ -27,28 +30,33 @@ export default function WaitingRoomPage() : JSX.Element {
 
 	const {errors} = form.formState;
 	const onSubmit = (data: FormSchemaType) => {
-		console.log (data.patientId + " submitted")
+		toast({
+			variant: "default",
+			description:  <p><span className="font-semibold">{data.patient.firstName} {data.patient.lastName}</span> a été ajouté(e) la salle d'attente</p>,
+			className: "bg-green-500 text-green-950"
+		})
+
 	};
 
 
 	useEffect(() => {
-		if (errors.patientId) {
+		if (errors.patient) {
 			toast({
 				variant: "destructive",
-				description: `${errors.patientId?.message}`,
+				description: `${errors.patient?.message}`,
 			})
 		}
 
-	}, [errors.patientId]);
+	}, [errors.patient]);
 
-	const handlePatientSelectionConfirm = (id: number | undefined) => {
-		if (id) {
-			form.setValue( "patientId", id);
+	const handlePatientSelectionConfirm = (patient: Patient | undefined) => {
+		if (patient) {
+			form.setValue( "patient", patient);
 			form.handleSubmit(onSubmit)();
 		}
 		else {
 			form.setError(
-				'patientId',
+				'patient',
 				{
 					type: 'required',
 					message: 'Veuillez sélectionner un patient.'
@@ -75,11 +83,18 @@ export default function WaitingRoomPage() : JSX.Element {
 					<form>
 						<FormField
 							control={form.control}
-							name="patientId"
+							name="patient"
 							render={() => (
 								<FormItem >
 									<FormControl>
-										<SelectPatientDialog onConfirm={handlePatientSelectionConfirm} />
+										<SelectPatientDialog trigger={
+											<Button size="sm" className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+													<path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+												</svg>
+												Ajouter patient
+											</Button>
+										} onConfirm={handlePatientSelectionConfirm} />
 									</FormControl>
 								</FormItem>
 							)}

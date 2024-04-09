@@ -47,16 +47,16 @@ export function DataTableFacetedFilter<TData, TValue>({column, title, options,}:
 						<>
 							<Separator orientation="vertical" className="mx-2 h-4" />
 							<Badge
-								variant="secondary"
-								className="rounded-sm px-1 font-normal lg:hidden"
+								variant="outline"
+								className="rounded-sm px-1 font-medium lg:hidden bg-muted"
 							>
 								{selectedValues.size}
 							</Badge>
 							<div className="hidden space-x-1 lg:flex">
 								{selectedValues.size > 2 ? (
 									<Badge
-										variant="secondary"
-										className="rounded-sm px-1 font-normal"
+										variant="outline"
+										className="rounded-sm px-1 font-medium bg-muted"
 									>
 										{selectedValues.size} selected
 									</Badge>
@@ -65,9 +65,9 @@ export function DataTableFacetedFilter<TData, TValue>({column, title, options,}:
 										.filter((option) => selectedValues.has(option.value))
 										.map((option) => (
 											<Badge
-												variant="secondary"
+												variant="outline"
 												key={option.value}
-												className="rounded-sm px-1 font-normal"
+												className="rounded-sm px-1 font-medium bg-muted"
 											>
 												{option.label}
 											</Badge>
@@ -134,7 +134,7 @@ export function DataTableFacetedFilter<TData, TValue>({column, title, options,}:
 										onSelect={() => column?.setFilterValue(undefined)}
 										className="justify-center text-center"
 									>
-										Clear filters
+										Effacer
 									</CommandItem>
 								</CommandGroup>
 							</>

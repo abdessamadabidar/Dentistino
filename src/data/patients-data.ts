@@ -1,5 +1,6 @@
 type Patient = {
 	id: number,
+	order: number,
 	firstName: string,
 	lastName: string,
 	phone: string,
@@ -9,6 +10,7 @@ type Patient = {
 export const patients: Patient[] = [
 	{
 		id: 1,
+		order: 2,
 		firstName: "Youssef",
 		lastName: "en-nesyri",
 		status: "servi",
@@ -17,6 +19,7 @@ export const patients: Patient[] = [
 	},
 	{
 		id: 2,
+		order: 4,
 		firstName: "Hakim",
 		lastName: "ziyach",
 		status: "en cours",
@@ -25,6 +28,7 @@ export const patients: Patient[] = [
 	},
 	{
 		id: 3,
+		order: 1,
 		firstName: "Brahim",
 		lastName: "Diaz",
 		status: "en cours",
@@ -33,6 +37,7 @@ export const patients: Patient[] = [
 	},
 	{
 		id: 4,
+		order: 3,
 		firstName: "Saadia",
 		lastName: "Abidar",
 		status: "servi",

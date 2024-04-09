@@ -9,13 +9,14 @@ import {Button} from "@/components/ui/button.tsx";
 import {DataTableColumnHeader} from "@/components/data-table-column-header.tsx";
 
 
+
 type Patient = {
 	id: number,
-	recordNo: string,
+	order: number,
 	firstName: string,
 	lastName: string,
+	phone: string,
 	status: "servi" | "en cours",
-	gender: "Homme" | "Femme",
 	registeredDate: string,
 }
 
@@ -23,9 +24,16 @@ type Patient = {
 export const columns: ColumnDef<Patient>[] = [
 
 	{
+		accessorKey: "order",
+		header: ({ column }) => (
+			<DataTableColumnHeader column={column} title="Ordre" className="flex justify-center"/>
+		),
+		cell: props => <span className="font-semibold text-center me-3 block">{`${props.getValue()}`}</span>
+	},
+	{
 		accessorKey: "firstName",
 		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Prénom" />
+			<DataTableColumnHeader column={column} title="Prénom"  />
 		),
 	},
 	{
@@ -35,18 +43,15 @@ export const columns: ColumnDef<Patient>[] = [
 		),
 	},
 	{
-		accessorKey: "status",
-		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Status" />
-		),
+		accessorKey: "phone",
+		header: 'Téléphone'
 	},
 	{
-		accessorKey: "gender",
+		accessorKey: "registeredDate",
 		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Sexe" />
+			<DataTableColumnHeader column={column} title="Date d'inscription" />
 		),
 	},
-
 	{
 		id: "actions",
 		cell: () => {
