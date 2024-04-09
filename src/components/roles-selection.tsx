@@ -3,7 +3,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {cn} from "@/lib/utils.ts";
 import {ToggleGroup, ToggleGroupItem} from "@/components/ui/toggle-group.tsx";
 import {CheckIcon} from "lucide-react";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Role, User} from "@/components/app-users-card.tsx";
 
 
@@ -18,19 +18,16 @@ export default function RolesSelection({user, roles}: RolesSelectionProps) {
 
 	const [selectedRoles, setSelectedRoles] = useState<string[]>(user.roles.map((role) => role.type));
 
-	useEffect(() => {
-		console.log(selectedRoles)
-	}, [selectedRoles]);
 
 	return (
 		<Popover>
 			<PopoverTrigger>
 				<Button variant="outline" className={cn(
 					selectedRoles.length == 0 && 'text-muted-foreground',
-					"ml-auto w-[110px] font-medium justify-between"
+					"ml-auto w-[110px] font-medium justify-between rounded-lg"
 				)}>
 					<p className="overflow-hidden text-ellipsi flex-1">
-						{selectedRoles.length === 0 ? 'Aucun' : selectedRoles.map((role) => role.concat(", "))}
+						ROLES
 					</p>
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ml-1">
 						<path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />

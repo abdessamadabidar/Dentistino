@@ -9,9 +9,9 @@ export function WaitingRoom() {
 	return (
 		<div className="space-y-8">
 			<div className="flex items-center">
-				<Avatar className="h-9 w-9">
+				<Avatar className="h-9 w-9 rounded-xl">
 					<AvatarImage src="/avatars/01.png" alt="Avatar" />
-					<AvatarFallback>OM</AvatarFallback>
+					<AvatarFallback className="bg-gradient-to-l from-indigo-400 to-indigo-500 text-white rounded-xl">OM</AvatarFallback>
 				</Avatar>
 				<div className="ml-4 space-y-1">
 					<p className="text-sm font-medium leading-none">Olivia Martin</p>
@@ -31,9 +31,9 @@ export function WaitingRoom() {
 
 			</div>
 			<div className="flex items-center">
-				<Avatar className="flex h-9 w-9 items-center justify-center space-y-0 border">
+				<Avatar className="h-9 w-9 rounded-xl">
 					<AvatarImage src="/avatars/02.png" alt="Avatar" />
-					<AvatarFallback>JL</AvatarFallback>
+					<AvatarFallback className="bg-gradient-to-l from-indigo-400 to-indigo-500 text-white rounded-xl">JL</AvatarFallback>
 				</Avatar>
 				<div className="ml-4 space-y-1">
 					<p className="text-sm font-medium leading-none">Jackson Lee</p>
@@ -52,9 +52,9 @@ export function WaitingRoom() {
 				</a>
 			</div>
 			<div className="flex items-center">
-				<Avatar className="h-9 w-9">
+				<Avatar className="h-9 w-9 rounded-xl">
 					<AvatarImage src="/avatars/03.png" alt="Avatar" />
-					<AvatarFallback>IN</AvatarFallback>
+					<AvatarFallback className="bg-gradient-to-l from-indigo-400 to-indigo-500 text-white rounded-xl">IN</AvatarFallback>
 				</Avatar>
 				<div className="ml-4 space-y-1">
 					<p className="text-sm font-medium leading-none">Isabella Nguyen</p>
@@ -73,9 +73,9 @@ export function WaitingRoom() {
 				</a>
 			</div>
 			<div className="flex items-center">
-				<Avatar className="h-9 w-9">
+				<Avatar className="h-9 w-9 rounded-xl">
 					<AvatarImage src="/avatars/04.png" alt="Avatar" />
-					<AvatarFallback>WK</AvatarFallback>
+					<AvatarFallback className="bg-gradient-to-l from-indigo-400 to-indigo-500 text-white rounded-xl">WK</AvatarFallback>
 				</Avatar>
 				<div className="ml-4 space-y-1">
 					<p className="text-sm font-medium leading-none">William Kim</p>
@@ -94,9 +94,9 @@ export function WaitingRoom() {
 				</a>
 			</div>
 			<div className="flex items-center">
-				<Avatar className="h-9 w-9">
+				<Avatar className="h-9 w-9 rounded-xl">
 					<AvatarImage src="/avatars/05.png" alt="Avatar" />
-					<AvatarFallback>SD</AvatarFallback>
+					<AvatarFallback className="bg-gradient-to-l from-indigo-400 to-indigo-500 text-white rounded-xl">SD</AvatarFallback>
 				</Avatar>
 				<div className="ml-4 space-y-1">
 					<p className="text-sm font-medium leading-none">Sofia Davis</p>

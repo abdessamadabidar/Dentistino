@@ -66,7 +66,7 @@ export default function AddNewUserForm() {
 
 	return (
 
-		<Card className="w-full px-4 border  pt-4 shadow-none space-y-5">
+		<Card className="w-full px-4 border-0 pt-4 shadow-none space-y-5">
 			<CardHeader className="space-y-0 p-0">
 				<CardTitle className="text-2xl">Créer un utilisateur</CardTitle>
 				<CardDescription>L'utilisateur s'authentifie à l'aide des informations saisies.</CardDescription>

@@ -1,8 +1,6 @@
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs.tsx";
+
 import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog.tsx";
-import {AppUsersCard} from "@/components/app-users-card.tsx";
 import AddNewUserForm from "@/components/add-new-user-form.tsx";
-import {roles, users} from "@/data/users.ts";
 
 export default function UserRoleDialog() {
 
@@ -16,18 +14,7 @@ export default function UserRoleDialog() {
 					<p className="hidden md:block">Utilisateurs</p>
 				</DialogTrigger>
 				<DialogContent>
-					<Tabs defaultValue="users">
-						<TabsList>
-							<TabsTrigger value="users" >Utilisateurs</TabsTrigger>
-							<TabsTrigger value="create">Créer un utilisateur</TabsTrigger>
-						</TabsList>
-						<TabsContent value="users">
-							<AppUsersCard users={users} roles={roles} />
-						</TabsContent>
-						<TabsContent value="create">
-							<AddNewUserForm />
-						</TabsContent>
-					</Tabs>
+					<AddNewUserForm />
 				</DialogContent>
 			</Dialog>
 
