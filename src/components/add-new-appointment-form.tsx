@@ -5,7 +5,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form.tsx";
 import {Input} from "@/components/ui/input.tsx";
 import SelectPatientDialog, {Patient} from "@/components/select-patient-dialog.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {cn} from "@/lib/utils.ts";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.tsx";
 import {Button} from "@/components/ui/button.tsx";
@@ -13,7 +13,8 @@ import {CaretSortIcon, CheckIcon} from "@radix-ui/react-icons";
 import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/components/ui/command.tsx";
 import {format} from "date-fns";
 import {Calendar} from "@/components/ui/calendar.tsx";
-
+import {TimePickerDemo} from "@/components/time-picker-demo.tsx";
+import {toast} from "@/components/ui/use-toast.ts";
 
 
 const motifs: string[] = [
@@ -32,13 +33,18 @@ const motifs: string[] = [
 ]
 
 const appointmentFormSchema = z.object({
-	patientId: z.number({
-		required_error: "Veuillez sélectionner un patient!"
-	}),
+	patient: z.object({
+		id: z.number({
+			required_error: "Veuillez sélectionner un(e) patient(e)."
+		}),
+	}).required(),
+
 	motif: z.string({
 		required_error: "Motif de rendez-vous est requis."
 	}),
-	date: z.date()
+	dateTime: z.date({
+		required_error: "Date de rendez-vous est requis."
+	})
 })
 
 type AppointmentForm = z.infer<typeof appointmentFormSchema>;
@@ -47,18 +53,52 @@ export default function AddNewAppointmentForm() {
 
 	const appointmentForm = useForm<AppointmentForm>({
 		resolver: zodResolver(appointmentFormSchema),
+
 	})
+
+	const {errors} = appointmentForm.formState;
+
+	useEffect(() => {
+		if (errors.patient) {
+			toast({
+				variant: "destructive",
+				description: `${errors.patient.message}`,
+			})
+		}
+		else if (errors) {
+			toast({
+				variant: "default",
+				description: "Veuillez compléter le formulaire",
+				className: "bg-amber-500 text-white"
+			})
+		}
+
+	}, [errors]);
+
 
 	const [selectedPatient, setSelectedPatient] = useState<Patient | undefined>();
 	const handlePatientSelectionConfirm = (patient: Patient | undefined) => {
-		setSelectedPatient(patient)
+		if(patient) {
+			setSelectedPatient(patient)
+			appointmentForm.setValue( "patient", patient);
+		}
+		else {
+			appointmentForm.setError(
+				'patient',
+				{
+					type: 'required',
+					message: 'Veuillez sélectionner un(e) patient(e).'
+				}
+			)
+		}
+
 	}
 	const onSubmit = (data: AppointmentForm) => {
 		console.log(data)
 	}
 
 	return (
-		<Card>
+		<Card className="w-[600px] mx-auto">
 			<CardHeader>
 				<CardTitle className="flex flex-nowrap items-center gap-x-2">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-6">
@@ -72,12 +112,12 @@ export default function AddNewAppointmentForm() {
 			<CardContent>
 				<Form {...appointmentForm}>
 					<form onSubmit={appointmentForm.handleSubmit(onSubmit)}>
-						<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6">
+						<div className="grid space-y-6">
 							<FormField
 								control={appointmentForm.control}
-								name="patientId"
+								name="patient"
 								render={() => (
-									<FormItem className="col-span-2">
+									<FormItem className="">
 										<FormLabel>Patient(e)</FormLabel>
 										<FormControl>
 											<SelectPatientDialog
@@ -99,7 +139,7 @@ export default function AddNewAppointmentForm() {
 								control={appointmentForm.control}
 								name="motif"
 								render={({ field }) => (
-									<FormItem className="flex flex-col justify-end col-span-2">
+									<FormItem className="flex flex-col justify-end">
 										<FormLabel>Motif de rendez-vous</FormLabel>
 										<Popover>
 											<PopoverTrigger asChild>
@@ -108,7 +148,7 @@ export default function AddNewAppointmentForm() {
 														variant="outline"
 														role="combobox"
 														className={cn(
-															"justify-between font-normal",
+															"justify-between font-normal ",
 															!field.value && "text-muted-foreground"
 														)}
 													>
@@ -158,46 +198,54 @@ export default function AddNewAppointmentForm() {
 							/>
 							<FormField
 								control={appointmentForm.control}
-								name="date"
+								name="dateTime"
 								render={({ field }) => (
-									<FormItem className="col-span-2">
-										<FormLabel>Date de rendez-vous</FormLabel>
-										<FormControl>
-											<Popover>
+									<FormItem className="flex flex-col">
+										<FormLabel className="text-left">Date de rendez-vous</FormLabel>
+										<Popover>
+											<FormControl>
 												<PopoverTrigger asChild>
 													<Button
-														variant={"outline"}
+														variant="outline"
 														className={cn(
-															"w-full pl-3 text-left font-normal",
+															" justify-start text-left font-normal",
 															!field.value && "text-muted-foreground"
 														)}
 													>
-														{field.value ? (
-															format(field.value, "PPP")
-														) : (
-															<span>Sélectionner une date</span>
-														)}
-														<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-2 h-4 w-4 ">
+														<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mr-2 h-4 w-4">
 															<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
 														</svg>
 
+														{field.value ? (
+															format(field.value, "PPP HH:mm:ss")
+														) : (
+															<span>Sélectionner une date</span>
+														)}
 													</Button>
 												</PopoverTrigger>
-												<PopoverContent className="w-auto p-0" align="start">
-													<Calendar
-														mode="single"
-														selected={field.value}
-														onSelect={field.onChange}
-														disabled={(date) => date < new Date("1900-01-01")}
-														initialFocus
+											</FormControl>
+											<PopoverContent className="w-auto p-0 px-3 flex items-center gap-x-2">
+												<Calendar
+													mode="single"
+													selected={field.value}
+													onSelect={field.onChange}
+													initialFocus
+												/>
+												<div className="p-3">
+													<TimePickerDemo
+														setDate={field.onChange}
+														date={field.value}
 													/>
-												</PopoverContent>
-											</Popover>
-										</FormControl>
+												</div>
+											</PopoverContent>
+										</Popover>
 										<FormMessage className="text-xs font-normal" />
 									</FormItem>
 								)}
 							/>
+						</div>
+						<div className="grid justify-end">
+							<Button type="submit" variant="default" className="mt-10 w-[150px]">Créer</Button>
 						</div>
 					</form>
 				</Form>

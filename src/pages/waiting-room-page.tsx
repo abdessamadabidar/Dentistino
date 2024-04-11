@@ -59,7 +59,7 @@ export default function WaitingRoomPage() : JSX.Element {
 				'patient',
 				{
 					type: 'required',
-					message: 'Veuillez sélectionner un patient.'
+					message: 'Veuillez sélectionner un(e) patient(e).'
 				}
 			)
 		}

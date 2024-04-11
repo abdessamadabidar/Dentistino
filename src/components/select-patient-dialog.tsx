@@ -62,14 +62,18 @@ export default function SelectPatientDialog({onConfirm, trigger}: SelectPatientD
 					<ScrollArea className="max-h-[400px]">
 						<ToggleGroup
 							className="w-full block space-y-2" type="single"
-							onValueChange={(value) => {setSelectedPatient(JSON.parse(value))}}
+							onValueChange={(value) => {
+								if(value) {
+									setSelectedPatient(JSON.parse(value))
+								}
+							}}
 						>
 							{filteredPatients.map((patient) => (
 								<ToggleGroupItem
 									variant="outline"
 									className="w-full h-full"
 									key={patient.id}
-									value={JSON.stringify(patient)}
+									value={JSON.stringify(patient!)}
 									aria-label={`Toggle ${patient.id}`}
 								>
 									<div className="w-full flex items-center py-3">
@@ -100,9 +104,7 @@ export default function SelectPatientDialog({onConfirm, trigger}: SelectPatientD
 				<DialogFooter className="justify-end mt-5">
 					<DialogClose asChild>
 						<div className="items-center space-x-2">
-							<Button size="sm" variant="outline" type="button" onClick={() => setSelectedPatient(undefined)}>
-								Close
-							</Button>
+							<Button size="sm" variant="outline" type="button">Close</Button>
 							<Button size="sm" type="button" className="dark:bg-secondary dark:text-white" onClick={() => {
 								onConfirm(selectedPatient)
 								setSelectedPatient(undefined)

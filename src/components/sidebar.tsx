@@ -1,6 +1,6 @@
 import {Separator} from "@/components/ui/separator.tsx";
-import UserRoleDialog from "@/components/user-role-dialog.tsx";
 import {Link} from "react-router-dom";
+
 
 function Sidebar() {
 
@@ -17,19 +17,12 @@ function Sidebar() {
 					</div>
 				</div>
 				<div className="flex flex-col gap-y-2 p-3">
-					<Link  to="/patients" className="flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 hover:bg-muted focus:bg-primary focus:dark:bg-secondary/80 focus:text-white rounded-md cursor-pointer">
+					<Link  to="/patients" className="flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 hover:bg-muted focus:bg-primary target:dark:bg-secondary/80 focus:text-white rounded-md">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
 						</svg>
 						Patients
 					</Link>
-					<a className="flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 rounded-md hover:bg-muted">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-							<path strokeLinecap="round" strokeLinejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
-						</svg>
-						<p className="hidden md:block">Tâches</p>
-					</a>
-
 					<Link to="/appointments" className="flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 rounded-md hover:bg-muted  focus:bg-primary focus:dark:bg-secondary/80 focus:text-white">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
@@ -67,9 +60,12 @@ function Sidebar() {
 				</div>
 				<Separator />
 				<div className="flex flex-col gap-y-2 p-3">
-					<div>
-						<UserRoleDialog />
-					</div>
+					<Link to="/users" className="w-full flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 rounded-md hover:bg-muted focus:bg-primary target:dark:bg-secondary/80 focus:text-white">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" className="size-5">
+							<path fill="currentColor" d="M17.254 11a2.25 2.25 0 0 1 2.25 2.25v6.249a5.501 5.501 0 0 1-11.002 0V13.25a2.25 2.25 0 0 1 2.25-2.25zm0 1.5h-6.502a.75.75 0 0 0-.75.75v6.249a4.001 4.001 0 0 0 8.002 0V13.25a.75.75 0 0 0-.75-.75M4.25 11h4.156a3.243 3.243 0 0 0-.817 1.5H4.25a.75.75 0 0 0-.75.75v5.249a3.001 3.001 0 0 0 4.238 2.735c.133.49.324.956.564 1.392A4.501 4.501 0 0 1 2 18.499V13.25A2.25 2.25 0 0 1 4.25 11m19.5 0A2.25 2.25 0 0 1 26 13.25v5.25a4.5 4.5 0 0 1-6.298 4.127l.056-.102c.214-.406.387-.837.511-1.289A3 3 0 0 0 24.5 18.5v-5.25a.75.75 0 0 0-.749-.75h-3.333A3.242 3.242 0 0 0 19.6 11zM14 3a3.5 3.5 0 1 1 0 7a3.5 3.5 0 0 1 0-7m8.003 1a3 3 0 1 1 0 6a3 3 0 0 1 0-6M5.997 4a3 3 0 1 1 0 6a3 3 0 0 1 0-6M14 4.5a2 2 0 1 0 0 4a2 2 0 0 0 0-4m8.003 1a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3m-16.006 0a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3"></path>
+						</svg>
+						<p className="hidden md:block">Utilisateurs</p>
+					</Link>
 					<a className="flex items-center flex-nowrap gap-x-2 font-medium text-sm px-3 py-2 rounded-md hover:bg-muted cursor-pointer">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" className="size-5">
 							<g fill="none" stroke="currentColor" strokeWidth={3}>

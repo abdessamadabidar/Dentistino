@@ -24,6 +24,14 @@ export const users: User[] = [
 		roles: [{id: 1, type: "ADMIN"}]
 	},
 	{
+		id: 1,
+		firstName: 'Mohammed Amine',
+		lastName: 'El hanafi',
+		email: 'mohamedamine.elhanafi@gmail.com',
+		isAccountActive: true,
+		roles: [{id: 1, type: "ADMIN"}]
+	},
+	{
 		id: 2,
 		firstName: 'Mina',
 		lastName: 'Abidar',
