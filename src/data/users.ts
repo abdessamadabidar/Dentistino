@@ -3,7 +3,8 @@ type User = {
 	id: number,
 	firstName: string,
 	lastName: string,
-	email: string
+	email: string,
+	isAccountActive: boolean,
 	roles: Role[]
 }
 
@@ -19,21 +20,24 @@ export const users: User[] = [
 		firstName: 'Abdessamad',
 		lastName: 'Abidar',
 		email: 'abdessamad.abidar@gmail.com',
-		roles: []
+		isAccountActive: true,
+		roles: [{id: 1, type: "ADMIN"}]
 	},
 	{
 		id: 2,
 		firstName: 'Mina',
 		lastName: 'Abidar',
 		email: 'mina.abidar@gmail.com',
-		roles: [],
+		isAccountActive: true,
+		roles: [{id: 2, type: "PRATICIAN"}]
 	},
 	{
 		id: 3,
 		firstName: 'Zakaria',
 		lastName: 'ezzeglali',
 		email: 'zakaria.ezzeglali@gmail.com',
-		roles: []
+		isAccountActive: false,
+		roles: [{id: 1, type: "ADMIN"}, {id: 2, type: "PRATICIAN"}]
 	},
 
 ]
