@@ -40,7 +40,7 @@ export const columns: ColumnDef<Appointment>[] = [
 		accessorKey: "status",
 		header: 'Status',
 		cell: props =>
-			<Badge variant="outline" className={cn(props.getValue() === 'reporté'? "bg-muted text-gray-700" : props.getValue() === 'en cours'? "bg-blue-400 text-blue-800" : props.getValue() === 'Absente'? "bg-red-400 text-red-800" : props.getValue() === 'Passé' ? "bg-green-400 text-green-800":"bg-amber-400 text-amber-800", "whitespace-nowrap border-0")} >{`${props.getValue()}`}</Badge>
+			<Badge variant="outline" className={cn(props.getValue() === 'reporté'? "bg-muted dark:bg-gray-700 text-gray-700 dark:text-white" : props.getValue() === 'en cours'? "bg-blue-200 dark:bg-blue-400 text-blue-700 dark:text-white" : props.getValue() === 'Absente'? "bg-red-200 dark:bg-red-400 text-red-700 dark:text-white" : props.getValue() === 'Passé' ? "bg-green-200 dark:bg-green-400 text-green-700 dark:text-white":"bg-amber-200 dark:bg-amber-400 text-amber-700 dark:text-white", "whitespace-nowrap border-0")} >{`${props.getValue()}`}</Badge>
 	},
 	{
 		accessorKey: "motif",

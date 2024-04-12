@@ -15,6 +15,7 @@ import DefaultLayout from "@/layout/default-layout.tsx";
 import AddAppointmentPage from "@/pages/add-appointment-page.tsx";
 import UsersPage from "@/pages/users-page.tsx";
 import AddNewUserPage from "@/pages/add-new-user-page.tsx";
+import NotificationsPage from "@/pages/notifications-page.tsx";
 
 
 const router = createBrowserRouter([
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path: 'add-new-user',
                 element: <AddNewUserPage />
+            },
+            {
+                path: 'notifications',
+                element: <NotificationsPage />
             },
         ]
     },

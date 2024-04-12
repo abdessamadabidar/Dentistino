@@ -65,15 +65,9 @@ export default function AddNewAppointmentForm() {
 				description: `${errors.patient.message}`,
 			})
 		}
-		else if (errors) {
-			toast({
-				variant: "default",
-				description: "Veuillez compléter le formulaire",
-				className: "bg-amber-500 text-white"
-			})
-		}
 
-	}, [errors]);
+
+	}, [errors.patient]);
 
 
 	const [selectedPatient, setSelectedPatient] = useState<Patient | undefined>();
