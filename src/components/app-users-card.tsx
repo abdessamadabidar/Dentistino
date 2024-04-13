@@ -51,7 +51,7 @@ export function AppUsersCard({users, roles}: AppUsersProps) {
 					<CardTitle>Les utilisateurs</CardTitle>
 					<CardDescription className="mt-1.5">Gérer les rôles des utilisateurs</CardDescription>
 				</div>
-				<Link to="/add-new-user">
+				<Link to="/create-new-user">
 					<Button size="sm" className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary rounded-lg px-4">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"/>
@@ -61,10 +61,10 @@ export function AppUsersCard({users, roles}: AppUsersProps) {
 				</Link>
 			</CardHeader>
 			<CardContent className="">
-				<div className="flex gap-6 flex-col justify-between w-full">
+				<div className="flex gap-4 flex-col justify-between w-full">
 					{users.map((user: User, index: number) => (
-						<div key={index} className="grid grid-cols-4 space-x-4 content-between w-full">
-							<div className="flex items-center space-x-4">
+						<div key={index} className="flex space-x-4 justify-between items-center w-full border rounded-xl p-4">
+							<div className="flex items-center space-x-4 flex-1">
 								<Avatar className="rounded-xl">
 									<AvatarImage src="/avatars/03.png"/>
 									<AvatarFallback className="text-white bg-gradient-to-l from-violet-400 to-violet-500 rounded-xl">
@@ -75,17 +75,17 @@ export function AppUsersCard({users, roles}: AppUsersProps) {
 									<div className="flex flex-nowrap items-center gap-x-2">
 										<p className="text-sm font-medium leading-none whitespace-nowrap">{user.firstName} {user.lastName}</p>
 										<div className="flex flex-nowrap gap-x-1 items-center">
-											{user.roles.map((role: Role, index: number) => <Badge  key={index} variant="outline" className=" text-primary">{role.type}</Badge> )}
+											{user.roles.map((role: Role, index: number) => <Badge  key={index} variant="outline" className=" text-primary dark:text-secondary">{role.type}</Badge> )}
 										</div>
 									</div>
 									<div className="text-xs text-muted-foreground">{user.email}</div>
 								</div>
 							</div>
 
-							<span className="self-center justify-self-center">
+							<span className="flex-1 grid justify-center w-fit">
 								<Badge variant="outline" className={cn("text-xs border-0", user.isAccountActive ? "bg-green-200 dark:bg-green-400 text-green-700 dark:text-white" : "bg-red-200 dark:bg-red-400 text-red-700 dark:text-white")}>{user.isAccountActive ? "Activé" : "Disactivé"}</Badge>
 							</span>
-							<div className="flex items-center justify-end gap-x-4">
+							<div className="flex items-center justify-end gap-x-4 flex-1">
 								<RolesSelection user={user} roles={roles} />
 								<DropdownMenu>
 									<DropdownMenuTrigger asChild>

@@ -1,58 +1,56 @@
 
-
-
-type Medicament = {
-	nom: string;
+export type Medicine = {
+	name: string;
 	posologies: string[]
 }
 
-interface TypeMedicament  {
+export interface MedicineType  {
 	type: string;
-	medicaments: Medicament[]
+	medicines: Medicine[]
 }
 
-const medicaments: TypeMedicament[] = [
+export const medicineTypes: MedicineType[] = [
 	{
 		type: 'Antalgique',
-		medicaments: [
+		medicines: [
 			{
-				nom: 'Cedol',
+				name: 'Cedol',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 3 jours'
 				]
 			},
 			{
-				nom: 'Brufen',
+				name: 'Brufen',
 				posologies: [
 					'1 cuillère à café 3 fois par jour pendant 3 jours'
 				]
 			},
 			{
-				nom: 'Codoliprane',
+				name: 'Codoliprane',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 3 jours'
 				]
 			},
 			{
-				nom: 'Doliprane 1 g',
+				name: 'Doliprane 1 g',
 				posologies: [
 					'1 comprimé 2 fois par jour pendant 3 jours'
 				]
 			},
 			{
-				nom: 'Doliprane 500',
+				name: 'Doliprane 500',
 				posologies: [
 					'1/2 comprimé 3 fois par jour pendant 3 jours'
 				]
 			},
 			{
-				nom: 'Pandol extra',
+				name: 'Pandol extra',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 3 jours'
 				]
 			},
 			{
-				nom: 'Parental',
+				name: 'Parental',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 3 jours'
 				]
@@ -61,70 +59,70 @@ const medicaments: TypeMedicament[] = [
 	},
 	{
 		type: 'Antibiotique',
-		medicaments: [
+		medicines: [
 			{
-				nom: 'Zyrdol 500mg',
+				name: 'Zyrdol 500mg',
 				posologies: []
 			},
 			{
-				nom: 'Test',
+				name: 'Test',
 				posologies: [
 					'3 fois par jour pendant 7 jours'
 				]
 			},
 			{
-				nom: 'Rodogyl',
+				name: 'Rodogyl',
 				posologies: [
 					'2 comprimés 2 fois par jour pendant 6 jours',
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Levamox 1g',
+				name: 'Levamox 1g',
 				posologies: [
 					'1 sachet 2 fois par jour pendant 6 jours',
 					'1 comprimé 2 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Flagyl 500 mg',
+				name: 'Flagyl 500 mg',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Ery 250',
+				name: 'Ery 250',
 				posologies: [
 					'1 sachet 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Dispamox',
+				name: 'Dispamox',
 				posologies: [
 					'1 comprimé 2 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Clavulin 500mg',
+				name: 'Clavulin 500mg',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Clavulin 1g',
+				name: 'Clavulin 1g',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Bispirazole',
+				name: 'Bispirazole',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours',
 					'1 comprimé 2 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Birodogyl',
+				name: 'Birodogyl',
 				posologies: [
 					'2 comprimés 2 fois par jour pendant 6 jours',
 					'1 comprimé 3 fois par jour pendant 6 jours',
@@ -132,44 +130,44 @@ const medicaments: TypeMedicament[] = [
 				]
 			},
 			{
-				nom: 'Aximycine 1g',
+				name: 'Aximycine 1g',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Augmentin1g',
+				name: 'Augmentin1g',
 				posologies: [
 					'1 comprimé 2 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Augmentin 500 mg',
+				name: 'Augmentin 500 mg',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Augmentin 250 mg',
+				name: 'Augmentin 250 mg',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Amoxil500 mg',
+				name: 'Amoxil500 mg',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Amoxil 1 g',
+				name: 'Amoxil 1 g',
 				posologies: [
 					'1 comprimé 3 fois par jour pendant 6 jours',
 					'1 comprimé 2 fois par jour pendant 6 jours'
 				]
 			},
 			{
-				nom: 'Algixene 250mg',
+				name: 'Algixene 250mg',
 				posologies: []
 			}
 		]

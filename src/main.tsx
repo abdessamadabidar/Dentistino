@@ -5,17 +5,18 @@ import {ThemeProvider} from "@/components/Theme/theme-provider";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import AuthenticationPage from "@/pages/authentication-page";
 import DashboardPage from "@/pages/dashboard-page";
-import AddPatientPage from "@/pages/add-patient-page.tsx";
+import CreateNewPatientPage from "@/pages/create-new-patient-page.tsx";
 import PatientsPage from "@/pages/patients-page.tsx";
 import AppointmentsPage from "@/pages/appointments-page.tsx";
 import WaitingRoomPage from "@/pages/waiting-room-page.tsx";
 import {Toaster} from "@/components/ui/toaster.tsx";
 import VerificationPage from "@/pages/verification-page.tsx";
 import DefaultLayout from "@/layout/default-layout.tsx";
-import AddAppointmentPage from "@/pages/add-appointment-page.tsx";
+import CreateNewAppointmentPage from "@/pages/create-new-appointment-page.tsx";
 import UsersPage from "@/pages/users-page.tsx";
-import AddNewUserPage from "@/pages/add-new-user-page.tsx";
+import CreateNewUserPage from "@/pages/create-new-user-page.tsx";
 import NotificationsPage from "@/pages/notifications-page.tsx";
+import CreateNewPrescriptionPage from "@/pages/create-new-prescription-page.tsx";
 
 
 const router = createBrowserRouter([
@@ -32,8 +33,8 @@ const router = createBrowserRouter([
                 element: <DashboardPage />
             },
             {
-                path: 'add-patient',
-                element: <AddPatientPage />
+                path: 'create-patient',
+                element: <CreateNewPatientPage />
             },
             {
                 path: 'patients',
@@ -52,16 +53,20 @@ const router = createBrowserRouter([
                 element: <WaitingRoomPage />
             },
             {
-                path: 'add-appointment',
-                element: <AddAppointmentPage />
+                path: 'create-appointment',
+                element: <CreateNewAppointmentPage />
             },
             {
-                path: 'add-new-user',
-                element: <AddNewUserPage />
+                path: 'create-new-user',
+                element: <CreateNewUserPage />
             },
             {
                 path: 'notifications',
                 element: <NotificationsPage />
+            },
+            {
+                path: 'create-prescription',
+                element: <CreateNewPrescriptionPage />
             },
         ]
     },

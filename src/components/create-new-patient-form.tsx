@@ -193,7 +193,7 @@ const patientFormSchema = z.object({
 export type PatientForm = z.infer<typeof patientFormSchema>
 
 
-export default function AddNewPatientForm() {
+export default function CreateNewPatientForm() {
 
 
 

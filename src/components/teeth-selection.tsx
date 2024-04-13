@@ -8,7 +8,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {ToggleGroup, ToggleGroupItem} from "@/components/ui/toggle-group.tsx";
 import {cn} from "@/lib/utils.ts";
 import {UseFormReturn} from "react-hook-form";
-import {PatientForm} from "@/components/add-new-patient-form.tsx";
+import {PatientForm} from "@/components/create-new-patient-form.tsx";
 import {useState} from "react";
 
 interface TeethSelectionProps {

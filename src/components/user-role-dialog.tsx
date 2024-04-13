@@ -1,6 +1,6 @@
 
 import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog.tsx";
-import AddNewUserForm from "@/components/add-new-user-form.tsx";
+import CreateNewUserForm from "@/components/create-new-user-form.tsx";
 
 export default function UserRoleDialog() {
 
@@ -14,7 +14,7 @@ export default function UserRoleDialog() {
 					<p className="hidden md:block">Utilisateurs</p>
 				</DialogTrigger>
 				<DialogContent>
-					<AddNewUserForm />
+					<CreateNewUserForm />
 				</DialogContent>
 			</Dialog>
 

@@ -2,7 +2,7 @@ import {TableCell} from "@/components/ui/table.tsx";
 import {FormControl, FormField, FormItem, FormMessage} from "@/components/ui/form.tsx";
 import {Input} from "@/components/ui/input.tsx";
 import {UseFormReturn} from "react-hook-form";
-import {PatientForm} from "@/components/add-new-patient-form.tsx";
+import {PatientForm} from "@/components/create-new-patient-form.tsx";
 import {useEffect, useState} from "react";
 
 interface Props {

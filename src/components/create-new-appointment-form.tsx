@@ -49,7 +49,7 @@ const appointmentFormSchema = z.object({
 
 type AppointmentForm = z.infer<typeof appointmentFormSchema>;
 
-export default function AddNewAppointmentForm() {
+export default function CreateNewAppointmentForm() {
 
 	const appointmentForm = useForm<AppointmentForm>({
 		resolver: zodResolver(appointmentFormSchema),
