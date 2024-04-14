@@ -6,48 +6,9 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import {useState} from "react";
+import {userFormSechma} from "@/zod/schemas/create-user-form-schema.ts";
 
 
-const userFormSechma = z.object({
-	firstName: z.string({
-		required_error: "Le prénom est requis.",
-		invalid_type_error: "Le prénom doit être une chaîne de caractères.",
-	}).min(2, {message:'Le prénom doit contenir au moins 3 caractères.'})
-		.max(50, {message: 'Le prénom ne doit pas dépasser 50 caractères.'})
-		.regex(new RegExp('^[A-Za-z]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
-		.toLowerCase(),
-
-
-	lastName: z.string({
-		required_error: "Le nom est requis.",
-		invalid_type_error: "Le nom doit être une chaîne de caractères.",
-	})
-		.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
-		.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'})
-		.regex(new RegExp('^[A-Za-z]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
-		.toLowerCase(),
-
-	email: z.string({
-		required_error: "L'adresse email est requis.",
-	}),
-
-	phone: z.string({
-		required_error: "Numéro de téléphone est requis.",
-	})
-		.min(10, {message:'Le numéro de téléphone doit contenir au moins 10 caractères.'})
-		.max(13, {message: 'Le numéro de téléphone ne doit pas dépasser 13 caractères.'})
-		.regex(new RegExp('^\\+?\\d{1,3}\\d{1,9}$'), {message: 'Le numéro de téléphone est invalid.'}),
-
-	password: z.string({
-		required_error: "Mot de passe est requis.",
-	})
-		.min(8, {message:'Le mot de passe doit contenir au moins 8 caractères.'}),
-
-	passwordConfirmation: z.string({
-		required_error: "Mot de passe est requis.",
-	})
-		.min(8, {message:'Le mot de passe doit contenir au moins 8 caractères.'})
-})
 
 type UserFormSchema = z.infer<typeof userFormSechma>;
 
@@ -77,7 +38,7 @@ export default function CreateNewUserForm() {
 	return (
 
 		<Card className="w-[600px] mx-auto">
-			<CardHeader className="">
+			<CardHeader className="border-b">
 				<CardTitle className="text-2xl flex items-center gap-x-1">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
 						<path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
@@ -86,7 +47,7 @@ export default function CreateNewUserForm() {
 				</CardTitle>
 				<CardDescription className="ml-3">L'utilisateur s'authentifie à l'aide des informations saisies.</CardDescription>
 			</CardHeader>
-			<CardContent className="">
+			<CardContent className="py-6">
 				<Form {...userForm}>
 					<form onSubmit={userForm.handleSubmit(onsubmit)}>
 						<div className="space-y-2.5">

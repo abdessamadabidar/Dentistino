@@ -53,7 +53,7 @@ const patientFormSchema = z.object({
 		})
 		.min(2, {message:'Le prénom doit contenir au moins 3 caractères.'})
 		.max(50, {message: 'Le prénom ne doit pas dépasser 50 caractères.'})
-		.regex(new RegExp('^[A-Za-z]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
+		.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
 		.toLowerCase(),
 
 	lastName: z.string({
@@ -62,7 +62,7 @@ const patientFormSchema = z.object({
 	})
 		.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
 		.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'})
-		.regex(new RegExp('^[A-Za-z]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
+		.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
 		.toLowerCase(),
 
 	cin: z.string({
@@ -130,7 +130,7 @@ const patientFormSchema = z.object({
 			})
 				.min(2, {message:'Le prénom doit contenir au moins 3 caractères.'})
 				.max(50, {message: 'Le prénom ne doit pas dépasser 50 caractères.'})
-				.regex(new RegExp('^[A-Za-z]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
+				.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
 				.toLowerCase(),
 			lastName: z.string({
 				required_error: "Le nom est requis.",
@@ -138,7 +138,7 @@ const patientFormSchema = z.object({
 			})
 				.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
 				.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'})
-				.regex(new RegExp('^[A-Za-z]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
+				.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
 				.toLowerCase(),
 			phone: z.string({
 				required_error: "Numéro de téléphone est requis.",

@@ -30,7 +30,7 @@ export default function AppointmentsPage() : JSX.Element {
 							</CardTitle>
 							<CardDescription className="ml-8 mt-2">Tous les patients prévus pour la consultation</CardDescription>
 						</div>
-						<Link to="/add-appointment">
+						<Link to="/create-appointment">
 							<Button size="sm" className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-5">
 									<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 9v10a2 2 0 0 0 2 2h6M4 9V7a2 2 0 0 1 2-2h2M4 9h16m0 0V7a2 2 0 0 0-2-2h-2m4 4v3m-4-7V3m0 2H8m0-2v2m11 11v3m0 3v-3m0 0h3m-3 0h-3"></path>

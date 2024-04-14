@@ -17,6 +17,8 @@ import UsersPage from "@/pages/users-page.tsx";
 import CreateNewUserPage from "@/pages/create-new-user-page.tsx";
 import NotificationsPage from "@/pages/notifications-page.tsx";
 import CreateNewPrescriptionPage from "@/pages/create-new-prescription-page.tsx";
+import UserProfilePage from "@/pages/user-profile-page.tsx";
+import EditUserPage from "@/pages/edit-user-page.tsx";
 
 
 const router = createBrowserRouter([
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
             {
                 path: 'create-prescription',
                 element: <CreateNewPrescriptionPage />
+            },
+            {
+                path: 'profile',
+                element: <UserProfilePage />
+            },
+            {
+                path: 'edit-user',
+                element: <EditUserPage />
             },
         ]
     },
