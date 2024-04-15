@@ -33,7 +33,7 @@ export default function WaitingRoomPage() : JSX.Element {
 		toast({
 			variant: "default",
 			description:  <p><span className="font-semibold">{data.patient.firstName} {data.patient.lastName}</span> a été ajouté(e) la salle d'attente</p>,
-			className: "bg-green-500 text-green-950"
+			className: "bg-green-500 text-white"
 		})
 
 	};
@@ -43,6 +43,7 @@ export default function WaitingRoomPage() : JSX.Element {
 		if (errors.patient) {
 			toast({
 				variant: "destructive",
+				title: "une erreur est survenu !",
 				description: `${errors.patient?.message}`,
 			})
 		}

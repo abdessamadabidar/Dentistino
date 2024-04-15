@@ -19,6 +19,7 @@ import NotificationsPage from "@/pages/notifications-page.tsx";
 import CreateNewPrescriptionPage from "@/pages/create-new-prescription-page.tsx";
 import UserProfilePage from "@/pages/user-profile-page.tsx";
 import EditUserPage from "@/pages/edit-user-page.tsx";
+import CreateNewLaboratoryReceiptForm from "@/components/create-new-laboratory-receipt-form.tsx";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <DashboardPage />
+            },
+            {
+                path: 'create-laboratory-receipt',
+                element: <CreateNewLaboratoryReceiptForm/>
             },
             {
                 path: 'create-patient',
