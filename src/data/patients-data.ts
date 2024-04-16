@@ -1,4 +1,4 @@
-type Patient = {
+export type Patient = {
 	id: number,
 	order: number,
 	firstName: string,
@@ -6,6 +6,7 @@ type Patient = {
 	phone: string,
 	status: "servi" | "en cours",
 	registeredDate: string,
+	gender: string
 }
 export const patients: Patient[] = [
 	{
@@ -15,7 +16,8 @@ export const patients: Patient[] = [
 		lastName: "en-nesyri",
 		status: "servi",
 		phone: "0611376395",
-		registeredDate: "2023-07-12 10:42 AM"
+		registeredDate: "2023-07-12 10:42 AM",
+		gender: "H"
 	},
 	{
 		id: 2,
@@ -24,7 +26,8 @@ export const patients: Patient[] = [
 		lastName: "ziyach",
 		status: "en cours",
 		phone: "0611376395",
-		registeredDate: "2023-07-12 10:42 AM"
+		registeredDate: "2023-07-12 10:42 AM",
+		gender: "H"
 	},
 	{
 		id: 3,
@@ -33,7 +36,8 @@ export const patients: Patient[] = [
 		lastName: "Diaz",
 		status: "en cours",
 		phone: "0611376395",
-		registeredDate: "2023-07-12 10:42 AM"
+		registeredDate: "2023-07-12 10:42 AM",
+		gender: "H"
 	},
 	{
 		id: 4,
@@ -42,6 +46,7 @@ export const patients: Patient[] = [
 		lastName: "Abidar",
 		status: "servi",
 		phone: "0611376395",
-		registeredDate: "2023-07-12 10:42 AM"
+		registeredDate: "2023-07-12 10:42 AM",
+		gender: "F"
 	}
 ]

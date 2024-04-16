@@ -155,7 +155,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={cn("text-sm font-medium text-destructive flex flex-nowrap items-center gap-x-1", className)}
+      className={cn("text-sm font-medium text-destructive flex flex-nowrap items-start gap-x-1", className)}
       {...props}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-3.5">

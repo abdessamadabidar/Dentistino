@@ -19,7 +19,7 @@ export const laboratoryReceiptFormSchema = z.object({
         }),
     gender: z.string({
         required_error: "Le genre est requis."
-    }),
+    }).min(1, {message: "Le genre est requis."}),
     sendDate: z.date({
         required_error: "Le date d'envoi de reçu est requis.",
         }

@@ -602,7 +602,7 @@ export default function CreateNewPatientForm() {
 														Cliquez sur le bouton Ajouter une pathologie s'il y a plusieurs pathologies.
 													</FormDescription>
 													<FormControl>
-														<div className="flex flex-nowrap gap-x-1 px-3">
+														<div className="flex flex-nowrap gap-x-2">
 															<Input type="text" {...field} />
 															<Button variant="outline" className="focus-visible:ring-0 px-3 text-destructive hover:text-destructive" onClick={() => removePathology(index)}>
 																<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">

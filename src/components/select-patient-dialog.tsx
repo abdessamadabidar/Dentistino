@@ -17,14 +17,8 @@ import {CheckIcon} from "lucide-react";
 import {cn} from "@/lib/utils.ts";
 import Search from "@/components/search.tsx";
 import {ReactNode, useState} from "react";
-import {patients} from "@/data/patients-data.ts";
+import {patients, Patient} from "@/data/patients-data.ts";
 
-
-export type Patient = {
-	id: number,
-	firstName: string,
-	lastName: string
-}
 interface SelectPatientDialogProps {
 	trigger: ReactNode,
 	onConfirm: (patient: Patient | undefined) => void
