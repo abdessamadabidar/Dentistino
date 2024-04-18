@@ -28,7 +28,6 @@ export default function CreateNewPrescriptionForm() {
 			</CardHeader>
 			<CardContent>
 				<div className="text-sm text-end italic">Chichaoua, Le {format(new Date(), 'd/MM/yyyy')}</div>
-
 				<div>
 					<DropdownMenu>
 						<DropdownMenuTrigger className="focus-visible:outline-none">

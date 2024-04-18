@@ -20,6 +20,8 @@ import CreateNewPrescriptionPage from "@/pages/create-new-prescription-page.tsx"
 import UserProfilePage from "@/pages/user-profile-page.tsx";
 import EditUserPage from "@/pages/edit-user-page.tsx";
 import CreateNewLaboratoryReceiptForm from "@/components/create-new-laboratory-receipt-form.tsx";
+import PatientProfilePage from "@/pages/patient-profile-page.tsx";
+
 
 
 const router = createBrowserRouter([
@@ -82,6 +84,10 @@ const router = createBrowserRouter([
             {
                 path: 'edit-user',
                 element: <EditUserPage />
+            },
+            {
+                path: 'patient',
+                element: <PatientProfilePage />
             },
         ]
     },

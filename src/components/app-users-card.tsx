@@ -5,16 +5,20 @@ import {
 } from "@/components/ui/avatar"
 import {
 	DropdownMenu,
-	DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuSeparator,
 	DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {MoreHorizontal} from "lucide-react";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
-import RolesSelection from "@/components/roles-selection.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
 import {cn} from "@/lib/utils.ts";
 import {Link} from "react-router-dom";
+import RolesSelection from "@/components/roles-selection.tsx";
+
+
 
 
 
@@ -86,7 +90,6 @@ export function AppUsersCard({users, roles}: AppUsersProps) {
 								<Badge variant="outline" className={cn("text-xs border-0", user.isAccountActive ? "bg-green-200 dark:bg-green-400 text-green-700 dark:text-white" : "bg-red-200 dark:bg-red-400 text-red-700 dark:text-white")}>{user.isAccountActive ? "Activé" : "Disactivé"}</Badge>
 							</span>
 							<div className="flex items-center justify-end gap-x-4 flex-1">
-								<RolesSelection user={user} roles={roles} />
 								<DropdownMenu>
 									<DropdownMenuTrigger asChild>
 										<Button variant="ghost" className="h-8 w-8 p-0">
@@ -119,6 +122,7 @@ export function AppUsersCard({users, roles}: AppUsersProps) {
 											</svg>
 											Désactiver
 										</DropdownMenuItem>
+										<RolesSelection user={user} roles={roles} />
 										<DropdownMenuSeparator/>
 										<DropdownMenuItem className="gap-x-2 text-red-500">
 											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">

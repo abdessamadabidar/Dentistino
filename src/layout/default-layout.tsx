@@ -24,7 +24,7 @@ export default function DefaultLayout() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex-1 space-y-4 p-8 pt-6 bg-neutral-50 dark:bg-background min-h-screen">
+                        <div className="flex-1 space-y-4 p-8 pt-6 bg-muted/40 dark:bg-background min-h-screen">
                             <Outlet/>
                         </div>
                     </div>

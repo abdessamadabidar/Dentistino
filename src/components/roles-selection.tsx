@@ -1,10 +1,10 @@
-import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.tsx";
-import {Button} from "@/components/ui/button.tsx";
-import {cn} from "@/lib/utils.ts";
-import {ToggleGroup, ToggleGroupItem} from "@/components/ui/toggle-group.tsx";
-import {CheckIcon} from "lucide-react";
-import {useState} from "react";
 import {Role, User} from "@/components/app-users-card.tsx";
+import {
+	DropdownMenuCheckboxItem,
+    DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger,
+} from "@/components/ui/dropdown-menu.tsx";
+
+import {useRole} from "@/hooks/useRole.ts";
 
 
 
@@ -16,46 +16,27 @@ interface RolesSelectionProps {
 
 export default function RolesSelection({user, roles}: RolesSelectionProps) {
 
-	const [selectedRoles, setSelectedRoles] = useState<string[]>(user.roles.map((role) => role.type));
-
+	const {roleIsChecked, appendRole, removeRole} = useRole({user: user});
 
 	return (
-		<Popover>
-			<PopoverTrigger>
-				<Button variant="outline" className={cn(
-					selectedRoles.length == 0 && 'text-muted-foreground',
-					"ml-auto w-[110px] font-medium justify-between rounded-lg"
-				)}>
-					<p className="overflow-hidden text-ellipsi flex-1">
-						ROLES
-					</p>
-					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4 ml-1">
-						<path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15 12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-					</svg>
-				</Button>
-			</PopoverTrigger>
-			<PopoverContent className="w-[150px] p-1">
-				<ToggleGroup
-					type="multiple"
-					size="sm"
-					onValueChange={(value) => setSelectedRoles(value)}
-				>
-					<div className="w-full">
-						{roles.map((role: Role, index: number) => (
-							<ToggleGroupItem key={index} value={role.type} className="w-full cursor-default justify-between items-center">
-								<p className="w-full text-start">{role.type}</p>
-								<CheckIcon
-									className={cn(
-										"ml-auto h-4 w-4",
-										selectedRoles.includes(role.type) ? "opacity-100" : "opacity-0"
-									)}
-								/>
-							</ToggleGroupItem>
-						))}
-					</div>
-				</ToggleGroup>
-			</PopoverContent>
-		</Popover>
-
+		<DropdownMenuSub>
+			<DropdownMenuSubTrigger className="gap-x-2">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+					<path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" />
+				</svg>
+				roles
+			</DropdownMenuSubTrigger>
+			<DropdownMenuSubContent>
+				{roles.map((role: Role, subKey: number) => (
+					<DropdownMenuCheckboxItem
+						key={subKey}
+						checked={roleIsChecked(role)}
+						onCheckedChange={(checked) => checked ? appendRole(role) : removeRole(role)}
+					>
+						<span className="font-medium italic text-xs">{role.type}</span>
+					</DropdownMenuCheckboxItem>
+				))}
+			</DropdownMenuSubContent>
+		</DropdownMenuSub>
 	);
 }
