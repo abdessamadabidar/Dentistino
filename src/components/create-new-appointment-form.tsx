@@ -4,7 +4,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form.tsx";
 import {Input} from "@/components/ui/input.tsx";
-import SelectPatientDialog, {Patient} from "@/components/select-patient-dialog.tsx";
+import SelectPatientDialog from "@/components/select-patient-dialog.tsx";
 import {useEffect, useState} from "react";
 import {cn} from "@/lib/utils.ts";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.tsx";
@@ -15,6 +15,7 @@ import {format} from "date-fns";
 import {Calendar} from "@/components/ui/calendar.tsx";
 import {TimePickerDemo} from "@/components/time-picker-demo.tsx";
 import {toast} from "@/components/ui/use-toast.ts";
+import {Patient} from "@/data/patients-data.ts"
 
 
 const motifs: string[] = [

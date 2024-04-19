@@ -4,7 +4,7 @@ export default function Nav() {
 
 	return (
 		<div className="ml-4 flex items-center justify-between gap-x-3">
-			<Link to="#" className="text-sm dark:text-white/80">Assurances</Link>
+			<Link to="insurance" className="text-sm italic text-foreground/80 hover:text-foreground dark:text-white/80">Assurances</Link>
 		</div>
 	);
 }

@@ -42,7 +42,7 @@ export const columns: ColumnDef<Patient>[] = [
 	{
 		accessorKey: "status",
 		header: 'Status',
-		cell: props => <Badge variant="outline" className={cn(props.getValue() === 'servi'? "bg-green-400 text-green-800" : "bg-blue-400 text-blue-800", "whitespace-nowrap border-0")} >{`${props.getValue()}`}</Badge>
+		cell: props => <Badge variant="outline" className={cn(props.getValue() === 'servi'? "bg-green-200 dark:bg-green-400 text-green-700 dark:text-white" : "bg-blue-200 dark:bg-blue-400 text-blue-700 dark:text-white", "whitespace-nowrap border-0")} >{`${props.getValue()}`}</Badge>
 	},
 	{
 		accessorKey: "registeredDate",

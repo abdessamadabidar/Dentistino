@@ -21,6 +21,10 @@ import UserProfilePage from "@/pages/user-profile-page.tsx";
 import EditUserPage from "@/pages/edit-user-page.tsx";
 import CreateNewLaboratoryReceiptForm from "@/components/create-new-laboratory-receipt-form.tsx";
 import PatientProfilePage from "@/pages/patient-profile-page.tsx";
+import PatientMedicalFolderPage from "@/pages/patient-medical-folder-page.tsx";
+import InsurancePage from "@/pages/insurance-page.tsx";
+import EditPatientPage from "@/pages/edit-patient-page.tsx";
+import EditMedicalFolderPage from "@/pages/edit-medical-folder-page.tsx";
 
 
 
@@ -88,6 +92,22 @@ const router = createBrowserRouter([
             {
                 path: 'patient',
                 element: <PatientProfilePage />
+            },
+            {
+                path: 'patient/medical-folder',
+                element: <PatientMedicalFolderPage />
+            },
+            {
+                path: 'patient/edit-patient',
+                element: <EditPatientPage />
+            },
+            {
+                path: 'patient/edit-medical-folder',
+                element: <EditMedicalFolderPage />
+            },
+            {
+                path: 'insurance',
+                element: <InsurancePage />
             },
         ]
     },

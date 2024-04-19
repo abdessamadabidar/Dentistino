@@ -4,6 +4,7 @@ import {
 	AvatarImage,
 } from "@/components/ui/avatar.tsx"
 import {Badge} from "@/components/ui/badge";
+import {Link} from "react-router-dom";
 
 export function WaitingRoom() {
 	return (
@@ -19,7 +20,7 @@ export function WaitingRoom() {
 						01/01/2022 à 00:00:00
 					</p>
 				</div>
-				<a className="ml-auto" href="#">
+				<Link to="patient" className="ml-auto">
 					<Badge variant="outline" className="flex flex-row items-center gap-x-1 hover:bg-muted">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 						<path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
@@ -27,7 +28,7 @@ export function WaitingRoom() {
 					</svg>
 						voir
 					</Badge>
-				</a>
+				</Link>
 
 			</div>
 			<div className="flex items-center">

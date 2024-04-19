@@ -1,8 +1,8 @@
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {DataTable} from "@/components/data-table.tsx";
 import {columns} from "@/components/data-table-columns/patients-waiting-room-columns.tsx";
-import {patients} from "@/data/patients-data.ts";
-import SelectPatientDialog, {Patient} from "@/components/select-patient-dialog.tsx";
+import {patients, Patient} from "@/data/patients-data.ts";
+import SelectPatientDialog from "@/components/select-patient-dialog.tsx";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";

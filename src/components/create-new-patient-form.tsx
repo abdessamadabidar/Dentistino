@@ -27,179 +27,25 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {z} from "zod";
 import TeethSelection from "@/components/teeth-selection.tsx";
 import PriceReceivedRemain from "@/components/price-received-remain.tsx";
-
-
-
-const cities: string[] = [
-	"Agadir",
-	"Casablanca",
-	"Marrakech",
-	"Tangier",
-	"Rabat",
-	"Meknes",
-	"Essaouira",
-	"Chefchaouen",
-	"Fes",
-	"Ouarzazate",
-	"Merzouga",
-];
-
-
-const patientFormSchema = z.object({
-	firstName: z
-		.string({
-			required_error: "Le prénom est requis.",
-			invalid_type_error: "Le prénom doit être une chaîne de caractères.",
-		})
-		.min(2, {message:'Le prénom doit contenir au moins 3 caractères.'})
-		.max(50, {message: 'Le prénom ne doit pas dépasser 50 caractères.'})
-		.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
-		.toLowerCase(),
-
-	lastName: z.string({
-		required_error: "Le nom est requis.",
-		invalid_type_error: "Le nom doit être une chaîne de caractères.",
-	})
-		.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
-		.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'})
-		.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
-		.toLowerCase(),
-
-	cin: z.string({
-		required_error: "CIN est requis.",
-	})
-		.length(8, {message:'CIN doit contenir 8 caractères.'})
-		.regex(new RegExp('^[A-Za-z]+\\d+'), {message: 'CIN est invalid'})
-		.toLowerCase(),
-
-	phone: z.string({
-		required_error: "Numéro de téléphone est requis.",
-	})
-		.min(10, {message:'Le numéro de téléphone doit contenir au moins 10 caractères.'})
-		.max(13, {message: 'Le numéro de téléphone ne doit pas dépasser 13 caractères.'})
-		.regex(new RegExp('^\\+?\\d{1,3}\\d{1,9}$'), {message: 'Le numéro de téléphone est invalid.'}),
-
-	address: z.string({
-		required_error: "L'adresse est requis.",
-	})
-		.min(5, {message:"L'addresse doit contenir au moins 5 caractères."})
-		.max(60, {message: "L'addresse ne doit pas dépasser 60 caractères."})
-		.toLowerCase(),
-
-	city: z.string({required_error: "La ville est requis."}),
-	dateOfBirth: z.date({
-		required_error: "Le date de naissance est requis.",
-	}),
-	profession: z.string().optional(),
-	gender: z.string({
-		required_error: "Le genre est requis."
-	}),
-	mutual: z.string({
-		required_error: "La mutuelle est requis."
-	}),
-	addressedBy: z.object({
-		fullName: z.string({
-			invalid_type_error: "Le nom complet doit être une chaîne de caractères.",
-		})
-			.min(2, {message:'Le nom complet doit contenir au moins 3 caractères.'})
-			.max(50, {message: 'Le nom complet ne doit pas dépasser 50 caractères.'})
-			.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le nom complet ne doit pas contenir de caractères spéciaux.'})
-			.toLowerCase().optional(),
-		speciality: z.string().optional(),
-	}).optional(),
-	isPregnantOrlactating: z.boolean().default(false).optional(),
-	bleeding: z.boolean().default(false).optional(),
-	parent: z.object({
-		fullName: z.string({
-			invalid_type_error: "Le nom complet doit être une chaîne de caractères.",
-		})
-			.min(2, {message:'Le nom complet doit contenir au moins 3 caractères.'})
-			.max(50, {message: 'Le nom complet ne doit pas dépasser 50 caractères.'})
-			.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le nom complet ne doit pas contenir de caractères spéciaux.'})
-			.toLowerCase().optional(),
-
-		relation: z.string({
-			invalid_type_error: "Le relation doit être significative.",
-		}).optional(),
-	}).optional(),
-	treatingDoctors: z.array(
-		z.object({
-			firstName: z.string({
-				required_error: "Le prénom est requis.",
-				invalid_type_error: "Le prénom doit être une chaîne de caractères.",
-			})
-				.min(2, {message:'Le prénom doit contenir au moins 3 caractères.'})
-				.max(50, {message: 'Le prénom ne doit pas dépasser 50 caractères.'})
-				.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le prénom ne doit pas contenir de caractères spéciaux.'})
-				.toLowerCase(),
-			lastName: z.string({
-				required_error: "Le nom est requis.",
-				invalid_type_error: "Le nom doit être une chaîne de caractères.",
-			})
-				.min(2, {message:'Le non doit contenir au moins 3 caractères.'})
-				.max(50, {message: 'Le nom ne doit pas dépasser 50 caractères.'})
-				.regex(new RegExp('^[A-Za-z\\s]+$'), {message: 'Le nom ne doit pas contenir de caractères spéciaux.'})
-				.toLowerCase(),
-			phone: z.string({
-				required_error: "Numéro de téléphone est requis.",
-			})
-				.min(10, {message:'Le numéro de téléphone doit contenir au moins 10 caractères.'})
-				.max(13, {message: 'Le numéro de téléphone ne doit pas dépasser 13 caractères.'})
-				.regex(new RegExp('^\\+?\\d{1,3}\\d{1,9}$'), {message: 'Le numéro de téléphone est invalid.'}),
-		})
-	).optional(),
-	pathologies: z
-		.array(
-			z.object({
-				value: z.string(),
-			})
-		)
-		.optional(),
-	treatments: z
-		.array(
-			z.object({
-				value: z.string(),
-			})
-		)
-		.optional(),
-	anesthesia:  z
-		.array(
-			z.object({
-				value: z.string(),
-			})
-		)
-		.optional(),
-	allergies:  z
-		.array(
-			z.object({
-				value: z.string(),
-			})
-		)
-		.optional(),
-	comment: z.string().max(160).min(4).optional(),
-	teeth: z
-		.array(
-			z.object({
-				date: z.date(),
-				numbers: z.array(z.number()).optional(),
-				observation: z.string(),
-				price: z.number(),
-				received: z.number(),
-				remain: z.number(),
-			})
-		).optional()
-});
-
-export type PatientForm = z.infer<typeof patientFormSchema>
-
-
-export default function CreateNewPatientForm() {
+import { createPatientFormSchema } from "@/zod/schemas/create-patient-form-schema";
+import { cities } from "@/data/cities";
 
 
 
 
-	const patientForm = useForm<PatientForm>({
-		resolver: zodResolver(patientFormSchema),
+
+
+
+export type CreatePatientForm = z.infer<typeof createPatientFormSchema>
+
+
+export default function CreateNewcreatePatientForm() {
+
+
+
+
+	const createPatientForm = useForm<CreatePatientForm>({
+		resolver: zodResolver(createPatientFormSchema),
 		defaultValues: {
 			firstName: "",
 			lastName: "",
@@ -208,45 +54,49 @@ export default function CreateNewPatientForm() {
 			phone: "",
 			isPregnantOrlactating: false,
 			bleeding: false,
+			pathologies: [{value: ""}],
+			treatments: [{value: ""}],
+			anesthesia: [{value: ""}],
+			allergies: [{value: ""}]
 
 		}
 	})
 
 	const { fields: pathologyFields , append: appendPathology, remove: removePathology } = useFieldArray({
 		name: "pathologies",
-		control: patientForm.control,
+		control: createPatientForm.control,
 	})
 
 	const { fields: treatmentFields, append: appendTreatment, remove: removeTreatment } = useFieldArray({
 		name: "treatments",
-		control: patientForm.control,
+		control: createPatientForm.control,
 	})
 
 	const { fields: anesthesiaFields, append: appendAnesthesia, remove: removeAnesthesia } = useFieldArray({
 		name: "anesthesia",
-		control: patientForm.control,
+		control: createPatientForm.control,
 	})
 	const { fields: allergyFields, append: appendAllergy, remove: removeAllergy } = useFieldArray({
 		name: "allergies",
-		control: patientForm.control,
+		control: createPatientForm.control,
 	})
 	const { fields: toothFields, append: appendTooth, remove: removehooth } = useFieldArray({
 		name: "teeth",
-		control: patientForm.control,
+		control: createPatientForm.control,
 	})
 	const { fields: treatingDoctorField, append: appendTreatingDoctor, remove: removeTreatingDoctor } = useFieldArray({
 		name: "treatingDoctors",
-		control: patientForm.control,
+		control: createPatientForm.control,
 	})
 
 
 
-	function onSubmit(values: PatientForm) {
+	function onSubmit(values: CreatePatientForm) {
 		console.log(values)
 	}
 
 	return (
-		<Card className="">
+		<Card>
 			<CardHeader>
 				<CardTitle className="flex flex-nowrap items-center gap-x-2">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -257,8 +107,8 @@ export default function CreateNewPatientForm() {
 				<CardDescription className="ml-8">Saisir avec précision toutes les informations requises sur le patient</CardDescription>
 			</CardHeader>
 			<CardContent className="px-14">
-				<Form {...patientForm}>
-					<form onSubmit={patientForm.handleSubmit(onSubmit)}>
+				<Form {...createPatientForm}>
+					<form onSubmit={createPatientForm.handleSubmit(onSubmit)}>
 						<div className="mb-20">
 							<div className="flex flex-nowrap items-center gap-x-4 mb-5">
 								<div className="border-b w-[50px]" />
@@ -267,7 +117,7 @@ export default function CreateNewPatientForm() {
 							</div>
 							<div className="grid md:grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-3.5">
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="firstName"
 									render={({ field }) => (
 										<FormItem>
@@ -280,7 +130,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="lastName"
 									render={({ field }) => (
 										<FormItem>
@@ -293,7 +143,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="cin"
 									render={({ field }) => (
 										<FormItem>
@@ -306,7 +156,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="dateOfBirth"
 									render={({ field }) => (
 										<FormItem>
@@ -350,7 +200,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name={`parent.fullName`}
 									render={({ field }) => (
 										<FormItem>
@@ -363,14 +213,14 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name={`parent.relation`}
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel>Lien</FormLabel>
 											<FormControl>
 												<Select
-													onValueChange={(value) => patientForm.setValue("parent.relation", value)}
+													onValueChange={(value) => createPatientForm.setValue("parent.relation", value)}
 												>
 													<SelectTrigger className={cn(
 														field.value || "text-foreground"
@@ -391,7 +241,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="address"
 									render={({ field }) => (
 										<FormItem>
@@ -404,7 +254,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="city"
 									render={({ field }) => (
 										<FormItem className="flex flex-col justify-end">
@@ -442,7 +292,7 @@ export default function CreateNewPatientForm() {
 																	value={city}
 																	key={index}
 																	onSelect={() => {
-																		patientForm.setValue("city", city)
+																		createPatientForm.setValue("city", city)
 																	}}
 																>
 																	{city}
@@ -466,7 +316,7 @@ export default function CreateNewPatientForm() {
 								/>
 
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="phone"
 									render={({ field }) => (
 										<FormItem>
@@ -480,14 +330,14 @@ export default function CreateNewPatientForm() {
 								/>
 
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="mutual"
 									render={() => (
 										<FormItem>
 											<FormLabel>Mutuelle</FormLabel>
 											<FormControl>
 												<Select
-													onValueChange={(value) => patientForm.setValue("mutual", value)}
+													onValueChange={(value) => createPatientForm.setValue("mutual", value)}
 												>
 													<SelectTrigger>
 														<SelectValue placeholder="Sélectionner la mutuelle" />
@@ -504,7 +354,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="profession"
 									render={({ field }) => (
 										<FormItem>
@@ -517,7 +367,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="gender"
 									render={({ field }) => (
 										<FormItem className="space-y-3 col-span-2">
@@ -559,43 +409,17 @@ export default function CreateNewPatientForm() {
 								<span className="text-sm whitespace-nowrap text-foreground/80">Informations médicales</span>
 								<div className="border-b w-full" />
 							</div>
+							<p className="text-sm font-medium mb-4">Situation Sanitaire</p>
 							<div className="grid md:grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-3.5">
-								<FormField
-									control={patientForm.control}
-									name={`addressedBy.fullName`}
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>Adressé par</FormLabel>
-											<FormControl>
-												<Input type="text" {...field}  />
-											</FormControl>
-											<FormMessage className="text-xs font-normal" />
-										</FormItem>
-									)}
-								/>
-								<FormField
-									control={patientForm.control}
-									name={`addressedBy.speciality`}
-									render={({ field }) => (
-										<FormItem>
-											<FormLabel>Spécialité</FormLabel>
-											<FormControl>
-												<Input type="text" {...field}  />
-											</FormControl>
-											<FormMessage className="text-xs font-normal" />
-										</FormItem>
-									)}
-								/>
-
 								<div>
 									{pathologyFields.map((field, index) => (
 										<FormField
-											control={patientForm.control}
+											control={createPatientForm.control}
 											key={field.id}
 											name={`pathologies.${index}.value`}
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel className={cn(index !== 0 && "sr-only")}>
+													<FormLabel className={cn(index !== 0 && "sr-only", "text-primary dark:text-secondary")}>
 														Pathologie
 													</FormLabel>
 													<FormDescription className={cn(index !== 0 && "sr-only")}>
@@ -633,12 +457,12 @@ export default function CreateNewPatientForm() {
 								<div>
 									{treatmentFields.map((field, index) => (
 										<FormField
-											control={patientForm.control}
+											control={createPatientForm.control}
 											key={field.id}
 											name={`treatments.${index}.value`}
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel className={cn(index !== 0 && "sr-only")}>
+													<FormLabel className={cn(index !== 0 && "sr-only", "text-primary dark:text-secondary")}>
 														Traitements
 													</FormLabel>
 													<FormDescription className={cn(index !== 0 && "sr-only")}>
@@ -676,12 +500,12 @@ export default function CreateNewPatientForm() {
 								<div>
 									{anesthesiaFields.map((field, index) => (
 										<FormField
-											control={patientForm.control}
+											control={createPatientForm.control}
 											key={field.id}
 											name={`anesthesia.${index}.value`}
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel className={cn(index !== 0 && "sr-only")}>
+													<FormLabel className={cn(index !== 0 && "sr-only", "text-primary dark:text-secondary")}>
 														Anesthésies
 													</FormLabel>
 													<FormDescription className={cn(index !== 0 && "sr-only")}>
@@ -719,12 +543,12 @@ export default function CreateNewPatientForm() {
 								<div>
 									{allergyFields.map((field, index) => (
 										<FormField
-											control={patientForm.control}
+											control={createPatientForm.control}
 											key={field.id}
 											name={`allergies.${index}.value`}
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel className={cn(index !== 0 && "sr-only")}>
+													<FormLabel className={cn(index !== 0 && "sr-only", "text-primary dark:text-secondary")}>
 														Allergies
 													</FormLabel>
 													<FormDescription className={cn(index !== 0 && "sr-only")}>
@@ -761,14 +585,16 @@ export default function CreateNewPatientForm() {
 								</div>
 								<div className="col-span-2 space-y-2">
 									<Label>Médecin traitant</Label>
-									<Card>
-										<CardContent className=" px-0">
+									<Card className="rounded-lg">
+										<CardContent className="p-0">
 											<Table>
 												<TableHeader>
 													<TableRow>
 														<TableHead>Prénom</TableHead>
 														<TableHead>Nom</TableHead>
 														<TableHead>Téléphone</TableHead>
+														<TableHead>Spécialité</TableHead>
+														<TableHead>Adréssant</TableHead>
 													</TableRow>
 												</TableHeader>
 												<TableBody>
@@ -776,7 +602,7 @@ export default function CreateNewPatientForm() {
 														<TableRow key={field.id}>
 															<TableCell>
 																<FormField
-																	control={patientForm.control}
+																	control={createPatientForm.control}
 																	name={`treatingDoctors.${index}.firstName`}
 																	render={({field}) => (
 																		<FormItem>
@@ -789,7 +615,7 @@ export default function CreateNewPatientForm() {
 															</TableCell>
 															<TableCell>
 																<FormField
-																	control={patientForm.control}
+																	control={createPatientForm.control}
 																	name={`treatingDoctors.${index}.lastName`}
 																	render={({field}) => (
 																		<FormItem>
@@ -802,12 +628,41 @@ export default function CreateNewPatientForm() {
 															</TableCell>
 															<TableCell>
 																<FormField
-																	control={patientForm.control}
+																	control={createPatientForm.control}
 																	name={`treatingDoctors.${index}.phone`}
 																	render={({field}) => (
 																		<FormItem>
 																			<FormControl>
 																				<Input type="text" {...field} />
+																			</FormControl>
+																		</FormItem>
+																	)}
+																/>
+															</TableCell>
+															<TableCell>
+																<FormField
+																	control={createPatientForm.control}
+																	name={`treatingDoctors.${index}.speciality`}
+																	render={({field}) => (
+																		<FormItem>
+																			<FormControl>
+																				<Input type="text" {...field} />
+																			</FormControl>
+																		</FormItem>
+																	)}
+																/>
+															</TableCell>
+															<TableCell className="text-center">
+																<FormField
+																	control={createPatientForm.control}
+																	name={`treatingDoctors.${index}.adressant`}
+																	render={({field}) => (
+																		<FormItem>
+																			<FormControl>
+																				<Checkbox
+																					checked={field.value}
+																					onCheckedChange={field.onChange}
+																				/>
 																			</FormControl>
 																		</FormItem>
 																	)}
@@ -825,8 +680,8 @@ export default function CreateNewPatientForm() {
 												</TableBody>
 											</Table>
 										</CardContent>
-										<CardFooter className="justify-center border-t py-2">
-											<Button type="button"  variant="ghost" className="gap-1" onClick={() => appendTreatingDoctor({firstName: "", lastName: "", phone: ""})}>
+										<CardFooter className="justify-center border-t-0  p-0">
+											<Button type="button"  variant="ghost" className="gap-1 w-full h-full rounded-t-none rounded-b-lg" onClick={() => appendTreatingDoctor({firstName: "", lastName: "", phone: ""})}>
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 													<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 												</svg>
@@ -836,7 +691,7 @@ export default function CreateNewPatientForm() {
 									</Card>
 								</div>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="comment"
 									render={({ field }) => (
 										<FormItem className="col-span-1 mt-3">
@@ -854,7 +709,7 @@ export default function CreateNewPatientForm() {
 								/>
 								<div />
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="isPregnantOrlactating"
 									render={({field}) => (
 										<FormItem className="col-span-1 my-4">
@@ -883,7 +738,7 @@ export default function CreateNewPatientForm() {
 									)}
 								/>
 								<FormField
-									control={patientForm.control}
+									control={createPatientForm.control}
 									name="bleeding"
 									render={({field}) => (
 										<FormItem className="col-span-1 my-4">
@@ -913,17 +768,17 @@ export default function CreateNewPatientForm() {
 								/>
 
 								<div className="col-span-2">
-									<Card>
-										<CardContent className=" px-0">
+									<Card className="rounded-lg">
+										<CardContent className="p-0">
 											<Table>
 												<TableHeader>
 													<TableRow>
 														<TableHead className="w-[200px]">Date</TableHead>
 														<TableHead>Dent</TableHead>
 														<TableHead className="w-[350px]">Observation</TableHead>
-														<TableHead className="">Prix</TableHead>
-														<TableHead className="">Reçu</TableHead>
-														<TableHead className="">Reste</TableHead>
+														<TableHead>Prix</TableHead>
+														<TableHead>Reçu</TableHead>
+														<TableHead>Reste</TableHead>
 													</TableRow>
 												</TableHeader>
 												<TableBody>
@@ -931,7 +786,7 @@ export default function CreateNewPatientForm() {
 														<TableRow key={field.id}>
 															<TableCell>
 																<FormField
-																	control={patientForm.control}
+																	control={createPatientForm.control}
 																	name={`teeth.${index}.date`}
 																	render={({ field }) => (
 																		<FormItem>
@@ -974,13 +829,13 @@ export default function CreateNewPatientForm() {
 															</TableCell>
 															<TableCell>
 																<FormField
-																	control={patientForm.control}
+																	control={createPatientForm.control}
 																	key={field.id}
 																	name={`teeth.${index}.numbers`}
 																	render={() => (
 																		<FormItem>
 																			<FormControl>
-																				<TeethSelection fieldIndex={index} form={patientForm} />
+																				<TeethSelection fieldIndex={index} form={createPatientForm} />
 																			</FormControl>
 																			<FormMessage className="text-xs font-normal" />
 																		</FormItem>
@@ -989,7 +844,7 @@ export default function CreateNewPatientForm() {
 															</TableCell>
 															<TableCell>
 																<FormField
-																	control={patientForm.control}
+																	control={createPatientForm.control}
 																	key={field.id}
 																	name={`teeth.${index}.observation`}
 																	render={({ field }) => (
@@ -1002,7 +857,7 @@ export default function CreateNewPatientForm() {
 																	)}
 																/>
 															</TableCell>
-															<PriceReceivedRemain rowIndex={index} fieldId={field.id} form={patientForm} />
+															<PriceReceivedRemain rowIndex={index} fieldId={field.id} form={createPatientForm} />
 															<TableCell>
 																<Button type="button" variant="outline" className="focus-visible:ring-0  px-3 text-destructive hover:text-destructive" onClick={() => removehooth(index)}>
 																	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
@@ -1015,8 +870,8 @@ export default function CreateNewPatientForm() {
 												</TableBody>
 											</Table>
 										</CardContent>
-										<CardFooter className="justify-center border-t p-4">
-											<Button type="button"  variant="ghost" className="gap-1" onClick={() => appendTooth({date: new Date(), numbers: [], observation: "", price: 0, received: 0, remain: 0 })}>
+										<CardFooter className="justify-center border-t-0 p-0">
+											<Button type="button"  variant="ghost" className="gap-1 w-full h-full rounded-t-none rounded-b-lg" onClick={() => appendTooth({date: new Date(), numbers: [], observation: "", price: 0, received: 0, remain: 0 })}>
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 													<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
 												</svg>
