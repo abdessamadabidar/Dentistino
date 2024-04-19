@@ -23,20 +23,19 @@ import SelectPatientDialog from "@/components/select-patient-dialog.tsx";
 import {Textarea} from "@/components/ui/textarea.tsx";
 import ShadeSelection from "@/components/shade-selection.tsx";
 import {Patient} from "@/data/patients-data.ts";
+import {useState} from "react";
 
 export type LaboratoryReceiptSchema = z.infer<typeof laboratoryReceiptFormSchema>
 export default function CreateNewLaboratoryReceiptForm() {
 
+    const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
     const laboratoryReceiptForm = useForm<LaboratoryReceiptSchema>({
         resolver: zodResolver(laboratoryReceiptFormSchema),
         defaultValues: {
-            patient: "",
-            age: undefined,
-            gender: "",
+            idPatient: undefined,
             sendDate: undefined,
             shade: "",
             tryOn: [{value: ""}]
-
         }
     })
     const { fields: tryOnFields , append: appendPTryOn, remove: removeTryOn } = useFieldArray({
@@ -48,8 +47,8 @@ export default function CreateNewLaboratoryReceiptForm() {
     }
     const handlePatientSelection = (patient: Patient | undefined) => {
         if (patient) {
-            laboratoryReceiptForm.setValue("patient", patient.firstName + " " + patient.lastName)
-            laboratoryReceiptForm.setValue("gender", patient.gender)
+            laboratoryReceiptForm.setValue("idPatient", patient.id)
+            setSelectedPatient(patient)
         }
     }
     return (
@@ -74,94 +73,59 @@ export default function CreateNewLaboratoryReceiptForm() {
                                     className="text-sm whitespace-nowrap text-foreground/80">Informations de patient</span>
                                 <div className="border-b w-full"/>
                             </div>
-                            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-3.5">
                                 <FormField
                                     control={laboratoryReceiptForm.control}
-                                    name="patient"
-                                    render={({field}) => (
-                                        <FormItem>
-                                            <FormLabel>Patient</FormLabel>
-                                            <FormControl>
-                                                <Input type="text" disabled {...field}/>
-                                            </FormControl>
-                                            <FormMessage className="text-xs font-normal"/>
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={laboratoryReceiptForm.control}
-                                    name="age"
-                                    render={({field}) => (
-                                        <FormItem>
-                                            <FormLabel>Age</FormLabel>
-                                            <FormControl>
-                                                <Input type="number" disabled {...field}/>
-                                            </FormControl>
-                                            <FormMessage className="text-xs font-normal"/>
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={laboratoryReceiptForm.control}
-                                    name="gender"
-                                    render={({field}) => (
-                                        <FormItem className="space-y-3">
-                                            <FormLabel>Sexe</FormLabel>
-                                            <FormControl>
-                                                <RadioGroup
-                                                    defaultValue={field.value}
-                                                    className="flex flex-row items-center gap-x-5 space-y-1"
-                                                >
-                                                    <FormItem className="flex items-center space-x-3 space-y-0">
-                                                        <FormControl>
-                                                            <RadioGroupItem checked={field.value === "H"} value="H" disabled/>
-                                                        </FormControl>
-                                                        <FormLabel className="font-normal">
-                                                            Homme
-                                                        </FormLabel>
-                                                    </FormItem>
-                                                    <FormItem className="flex items-center space-x-3 space-y-0">
-                                                        <FormControl>
-                                                            <RadioGroupItem checked={field.value === "F"} value="F" disabled/>
-                                                        </FormControl>
-                                                        <FormLabel className="font-normal">
-                                                            Femme
-                                                        </FormLabel>
-                                                    </FormItem>
-                                                </RadioGroup>
-                                            </FormControl>
-                                            <FormMessage className="text-xs font-normal"/>
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={laboratoryReceiptForm.control}
-                                    name="patient"
+                                    name="idPatient"
                                     render={() => (
-                                        <FormItem className="lg:col-span-3">
-                                            <FormControl>
-                                                <SelectPatientDialog trigger={
-                                                    <Button
-                                                        type="button"
-                                                        variant="outline"
-                                                        size="sm"
-                                                        className="mt-2 flex flex-nowrap items-center gap-x-1 w-full py-5"
-                                                    >
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                                                        </svg>
-                                                        Selectionner un patient
-                                                    </Button>
-                                                } onConfirm={handlePatientSelection} />
-                                            </FormControl>
-                                        </FormItem>
-                                    )}
+                                        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-3.5">
+                                            <div className="space-y-2">
+                                                <span className="text-sm font-medium">Patient</span>
+                                                <Input type="text" value={selectedPatient ? selectedPatient.firstName + " " + selectedPatient.lastName : ""} disabled/>
+                                                <FormMessage className="text-xs font-normal"/>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <span className="text-sm font-medium">Age</span>
+                                                <Input type="number" disabled/>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <span className="text-sm font-medium">Sexe</span>
+                                                <RadioGroup className="flex flex-row items-center gap-x-5 space-y-1">
+                                                    <div className="flex items-center space-x-3 space-y-0">
+                                                        <RadioGroupItem value="H" checked={!!(selectedPatient && selectedPatient.gender === "H")} disabled/>
+                                                        <span className="font-normal">Homme</span>
+                                                    </div>
+                                                    <div className="flex items-center space-x-3 space-y-0">
+                                                        <RadioGroupItem value="F" checked={!!(selectedPatient && selectedPatient.gender === "F")} disabled/>
+                                                        <span className="font-normal">Femme</span>
+                                                    </div>
+                                                </RadioGroup>
+                                            </div>
+                                            <FormItem className="lg:col-span-3">
+                                                <FormControl>
+                                                    <SelectPatientDialog trigger={
+                                                        <Button
+                                                            type="button"
+                                                            variant="outline"
+                                                            size="sm"
+                                                            className="mt-2 flex flex-nowrap items-center gap-x-1 w-full py-5"
+                                                        >
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                 viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
+                                                                 className="size-4">
+                                                                <path strokeLinecap="round" strokeLinejoin="round"
+                                                                      d="M12 4.5v15m7.5-7.5h-15"/>
+                                                            </svg>
+                                                            Selectionner un patient
+                                                        </Button>
+                                                    } onConfirm={handlePatientSelection}/>
+                                                </FormControl>
+                                            </FormItem>
+                                        </div>)}
                                 />
-                            </div>
                         </div>
                         <div className="mb-20">
                             <div className="flex flex-nowrap items-center gap-x-4 my-5">
-                                <div className="border-b w-[50px]"/>
+                            <div className="border-b w-[50px]"/>
                                 <span
                                     className="text-sm whitespace-nowrap text-foreground/80">Informations de médicaux</span>
                                 <div className="border-b w-full"/>
@@ -170,11 +134,11 @@ export default function CreateNewLaboratoryReceiptForm() {
                                 <FormField
                                     control={laboratoryReceiptForm.control}
                                     name="shade"
-                                    render={() => (
+                                    render={({field}) => (
                                         <FormItem>
                                             <FormLabel>Teinte</FormLabel>
                                             <FormControl>
-                                                <ShadeSelection form={laboratoryReceiptForm}/>
+                                                <ShadeSelection shade={field.value} form={laboratoryReceiptForm}/>
                                             </FormControl>
                                             <FormMessage className="text-xs font-normal"/>
                                         </FormItem>
