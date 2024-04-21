@@ -25,6 +25,7 @@ import PatientMedicalFolderPage from "@/pages/patient-medical-folder-page.tsx";
 import InsurancePage from "@/pages/insurance-page.tsx";
 import EditPatientPage from "@/pages/edit-patient-page.tsx";
 import EditMedicalFolderPage from "@/pages/edit-medical-folder-page.tsx";
+import EditPasswordPage from "@/pages/edit-password-page.tsx";
 
 
 
@@ -108,6 +109,10 @@ const router = createBrowserRouter([
             {
                 path: 'insurance',
                 element: <InsurancePage />
+            },
+            {
+                path: 'edit-password',
+                element: <EditPasswordPage />
             },
         ]
     },

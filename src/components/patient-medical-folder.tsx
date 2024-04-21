@@ -4,21 +4,17 @@ import {Badge} from "@/components/ui/badge.tsx";
 import {Textarea} from "@/components/ui/textarea.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Link} from "react-router-dom";
-import RadiologyDialog, {Slide} from "@/components/radiology-dialog.tsx";
+import RadiologyDialog from "@/components/radiology-dialog.tsx";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group.tsx";
 import {Label} from "@/components/ui/label.tsx";
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table.tsx";
+import {slides} from "@/data/slides.ts";
 
 const observation = "bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker."
 
 
 export default function PatientMedicalFolder() {
-	// https://ui.shadcn.com/placeholder.svg
-	const slides: Slide[] = [
-		{image: "/src/assets/radio-1.jpg"},
-		{image: "/src/assets/radio-2.jpg"},
-		{image: "/src/assets/radio-3.jpg"}
-	]
+
 
 	return (
 		<div className="min-h-screen w-full space-y-4">
@@ -32,7 +28,7 @@ export default function PatientMedicalFolder() {
 						</Button>
 					</Link>
 					<h1 className="text-lg font-semibold">Dossier du patient(e)</h1>
-					<Badge variant="outline" className="py-1.5">Dossier N° 2024365487</Badge>
+					<Badge variant="outline" className="py-1.5 bg-muted">Dossier N° 2024365487</Badge>
 				</div>
 				<div className="flex items-center flex-nowrap gap-x-2">
 					<Link to="/patient/edit-medical-folder">
