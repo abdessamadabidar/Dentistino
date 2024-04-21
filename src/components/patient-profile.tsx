@@ -173,31 +173,46 @@ export default function PatientProfile() {
 					</div>
 					<div className="">
 						<Card>
+							<CardHeader className="space-y-0 py-4">
+								<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+									</svg>
+									Laboratoire
+								</CardTitle>
+							</CardHeader>
+							<CardContent className="">
+								<Link to="create-laboratory-receipt">
+									<Button variant="outline" className="flex flex-nowrap items-center gap-x-1.5 px-3 w-full">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+											<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+										</svg>
+										Créer un laboratoire reçu
+									</Button>
+								</Link>
+							</CardContent>
+						</Card>
+					</div>
+					<div className="">
+						<Card>
 							<CardHeader className="space-y-0">
 								<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-										<path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+										<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
 									</svg>
-									Facture
+									Ordonnance
 								</CardTitle>
-								<CardDescription>Le patient n'existe pas encore dans la salle d'attente.</CardDescription>
+								<CardDescription>Le lieu et la date sont générés automatiquement.</CardDescription>
 							</CardHeader>
-							<CardContent className="px-0">
-								<div className="flex flex-col ">
-									<div className="flex flex-nowrap items-center justify-between py-2  px-6">
-										<div className="font-semibold text-foreground/80">Total :</div>
-										<div className="font-semibold text-foreground/80"> 2500 DH</div>
-									</div>
-									<div className="flex flex-nowrap items-center justify-between py-2  px-6">
-										<div className="font-semibold text-foreground/80">Reçu :</div>
-										<div className="font-semibold text-green-600"> 1500 DH</div>
-									</div>
-									<div className="flex flex-nowrap items-center justify-between border-y py-2 bg-muted px-6">
-										<div className="font-semibold text-foreground/80">Reste :</div>
-										<div className="font-semibold text-red-600"> 1000 DH</div>
-									</div>
-
-								</div>
+							<CardContent className="">
+								<Link to="create-prescription">
+									<Button variant="default" className="flex flex-nowrap items-center gap-x-1.5 px-3  w-full">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+											<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+										</svg>
+										Créer une ordonnance
+									</Button>
+								</Link>
 							</CardContent>
 						</Card>
 					</div>
@@ -205,28 +220,55 @@ export default function PatientProfile() {
 			</div>
 			<div className="grid grid-cols-4 grid-rows-1 gap-x-2">
 				<div className="row-span-1">
-					<Card className="h-full">
-						<CardHeader>
+					<Card className="">
+						<CardHeader className="space-y-0">
 							<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-									<path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+									<path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
 								</svg>
-								Laboratoire
+								Facture
 							</CardTitle>
+							<CardDescription>Le patient n'existe pas encore dans la salle d'attente.</CardDescription>
 						</CardHeader>
-						<CardContent></CardContent>
+						<CardContent className="px-0">
+							<div className="flex flex-col ">
+								<div className="flex flex-nowrap items-center justify-between py-2  px-6">
+									<div className="font-semibold text-foreground/80">Total :</div>
+									<div className="font-semibold text-foreground/80"> 2500 DH</div>
+								</div>
+								<div className="flex flex-nowrap items-center justify-between py-2  px-6">
+									<div className="font-semibold text-foreground/80">Reçu :</div>
+									<div className="font-semibold text-green-600"> 1500 DH</div>
+								</div>
+								<div className="flex flex-nowrap items-center justify-between border-y py-2 bg-muted px-6">
+									<div className="font-semibold text-foreground/80">Reste :</div>
+									<div className="font-semibold text-red-600"> 1000 DH</div>
+								</div>
+
+							</div>
+						</CardContent>
 					</Card>
 				</div>
 				<div className="col-span-3 row-span-1">
 					<Card>
-						<CardHeader className="space-y-0">
-							<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-									<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
-								</svg>
-								Les rendez-vous
-							</CardTitle>
-							<CardDescription>La list des rendez-vous de ce patient</CardDescription>
+						<CardHeader className="space-y-0 flex flex-row flex-nowrap justify-between items-start">
+							<div>
+								<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+									</svg>
+									Les rendez-vous
+								</CardTitle>
+								<CardDescription>La list des rendez-vous de ce patient</CardDescription>
+							</div>
+							<Link to="/create-appointment">
+								<Button variant="outline" size="sm" className="flex items-center flex-nowrap gap-x-2">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-5">
+										<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 9v10a2 2 0 0 0 2 2h6M4 9V7a2 2 0 0 1 2-2h2M4 9h16m0 0V7a2 2 0 0 0-2-2h-2m4 4v3m-4-7V3m0 2H8m0-2v2m11 11v3m0 3v-3m0 0h3m-3 0h-3"></path>
+									</svg>
+									Nouveau rendez-vous
+								</Button>
+							</Link>
 						</CardHeader>
 						<CardContent>
 							<Table>

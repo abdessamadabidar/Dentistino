@@ -15,7 +15,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/c
 import {CaretSortIcon, CheckIcon} from "@radix-ui/react-icons";
 import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/components/ui/command.tsx";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group.tsx";
-import {cities} from "@/data/cities.ts";
+import citiesJson from "@/data/morocco_cities.json"
 
 
 export type EditPatientForm = z.infer<typeof editPatientFormSchema>
@@ -217,9 +217,9 @@ export default function EditPatientForm() {
 													)}
 												>
 													{field.value
-														? cities.find(
-															(city) => city === field.value
-														)
+														? citiesJson.find(
+															(element) => element.city === field.value
+														)?.city
 														: "Sélectionner une ville"}
 													<CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 												</Button>
@@ -233,19 +233,19 @@ export default function EditPatientForm() {
 												/>
 												<CommandEmpty>Aucune ville trouvée.</CommandEmpty>
 												<CommandGroup>
-													{cities.map((city, index) => (
+													{citiesJson.map((element, index) => (
 														<CommandItem
-															value={city}
+															value={element.city}
 															key={index}
 															onSelect={() => {
-																editPatientForm.setValue("city", city)
+																editPatientForm.setValue("city", element.city)
 															}}
 														>
-															{city}
+															{element.city}
 															<CheckIcon
 																className={cn(
 																	"ml-auto h-4 w-4",
-																	city === field.value
+																	element.city === field.value
 																		? "opacity-100"
 																		: "opacity-0"
 																)}

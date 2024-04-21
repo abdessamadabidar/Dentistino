@@ -123,7 +123,7 @@ export default function UserProfile() {
 			</CardContent>
 			<CardFooter className="border-t pt-5">
 				<div className="space-y-4">
-					<h3 className="text-lg font-semibold">Roles :</h3>
+					<h3 className="text-lg font-semibold">Les rôles :</h3>
 					<div className="flex gap-x-4 items-center">
 						{user.roles.map((role: Role, index: number) => <Badge  key={index} variant="outline" className=" text-primary dark:text-secondary">{role.type}</Badge> )}
 					</div>

@@ -11,6 +11,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {medicineTypes, Medicine, MedicineType} from "@/data/medicines.ts";
 import {useMedicine} from "@/hooks/useMedicine.ts";
 import {format} from "date-fns";
+import {Input} from "@/components/ui/input.tsx";
 
 export default function CreateNewPrescriptionForm() {
 	const {selectedMedicines, appendItem, removeItem, posologieIsChecked} = useMedicine()
@@ -35,7 +36,7 @@ export default function CreateNewPrescriptionForm() {
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 									<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
 								</svg>
-								Ajouter un médicament
+								Ajouter médicament
 							</Button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent align={"start"} className="w-[300px]">
@@ -60,13 +61,36 @@ export default function CreateNewPrescriptionForm() {
 															{posologie}
 														</DropdownMenuCheckboxItem>
 													))}
+													<div className="px-2 py-1 relative">
+														<Button size="icon" variant="outline" className="absolute top-[50%] -translate-y-1/2 right-3 size-6 ">
+															<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+																<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+															</svg>
+														</Button>
+														<Input placeholder="Nouveau" className="focus-visible:ring-0 h-8 text-sm" type="text" />
+													</div>
 												</DropdownMenuSubContent>
 											</DropdownMenuSub>
 										))}
+										<div className="px-2 py-1 relative">
+											<Button size="icon" variant="outline" className="absolute top-[50%] -translate-y-1/2 right-3 size-6 ">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+													<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+												</svg>
+											</Button>
+											<Input placeholder="Nouveau" className="focus-visible:ring-0 h-8 text-sm" type="text" />
+										</div>
 									</DropdownMenuSubContent>
 								</DropdownMenuSub>
 							))}
-
+							<div className="px-2 py-1 relative">
+								<Button size="icon" variant="outline" className="absolute top-[50%] -translate-y-1/2 right-3 size-6 ">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+									</svg>
+								</Button>
+								<Input placeholder="Nouveau" className="focus-visible:ring-0 h-8 text-sm" type="text" />
+							</div>
 						</DropdownMenuContent>
 					</DropdownMenu>
 					<div className="mt-6 px-5 grid space-y-3 justify-center">

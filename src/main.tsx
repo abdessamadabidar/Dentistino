@@ -19,13 +19,14 @@ import NotificationsPage from "@/pages/notifications-page.tsx";
 import CreateNewPrescriptionPage from "@/pages/create-new-prescription-page.tsx";
 import UserProfilePage from "@/pages/user-profile-page.tsx";
 import EditUserPage from "@/pages/edit-user-page.tsx";
-import CreateNewLaboratoryReceiptForm from "@/components/create-new-laboratory-receipt-form.tsx";
 import PatientProfilePage from "@/pages/patient-profile-page.tsx";
 import PatientMedicalFolderPage from "@/pages/patient-medical-folder-page.tsx";
 import InsurancePage from "@/pages/insurance-page.tsx";
 import EditPatientPage from "@/pages/edit-patient-page.tsx";
 import EditMedicalFolderPage from "@/pages/edit-medical-folder-page.tsx";
 import EditPasswordPage from "@/pages/edit-password-page.tsx";
+import ArchivePage from "@/pages/archive-page.tsx";
+import CreateNewLaboratoryReceiptPage from "@/pages/create-new-laboratory-receipt-page.tsx";
 
 
 
@@ -43,8 +44,8 @@ const router = createBrowserRouter([
                 element: <DashboardPage />
             },
             {
-                path: 'create-laboratory-receipt',
-                element: <CreateNewLaboratoryReceiptForm/>
+                path: 'patient/create-laboratory-receipt',
+                element: <CreateNewLaboratoryReceiptPage/>
             },
             {
                 path: 'create-patient',
@@ -79,7 +80,7 @@ const router = createBrowserRouter([
                 element: <NotificationsPage />
             },
             {
-                path: 'create-prescription',
+                path: 'patient/create-prescription',
                 element: <CreateNewPrescriptionPage />
             },
             {
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
             {
                 path: 'edit-password',
                 element: <EditPasswordPage />
+            },
+            {
+                path: 'archive',
+                element: <ArchivePage />
             },
         ]
     },
