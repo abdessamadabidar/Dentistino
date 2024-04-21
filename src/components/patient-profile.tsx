@@ -14,33 +14,32 @@ export default function PatientProfile() {
 		<div className="min-h-screen w-full space-y-4">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-x-3">
-					<Button size="icon" variant="outline" className="size-7">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+					<Button size="icon" variant="outline">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
 						</svg>
-
 					</Button>
 					<h1 className="text-lg font-semibold">Profil du patient(e)</h1>
 					<Badge variant="outline" className="bg-blue-200 dark:bg-blue-400 text-blue-700 dark:text-white">en cours</Badge>
 				</div>
 				<div className="flex items-center flex-nowrap gap-x-2">
 					<Button size="sm" variant="outline" className="flex flex-nowrap items-center gap-x-1.5 px-3 text-sm">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-							<path strokeLinecap="round" strokeLinejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0-3-3m3 3 3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+							<path strokeLinecap="round" strokeLinejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
 						</svg>
 						Archiver
 					</Button>
 					<Link to="edit-patient">
 						<Button size="sm" variant="outline" className="flex flex-nowrap items-center gap-x-1.5 px-3 text-sm">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-								<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}  stroke="currentColor" className="size-4">
+								<path strokeLinecap="round" strokeLinejoin="round"  d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
 							</svg>
 							Modifier
 						</Button>
 					</Link>
 					<Link to="#">
-						<Button size="sm" variant="default" className="flex flex-nowrap items-center gap-x-1.5 px-3 text-sm bg-destructive hover:bg-destructive dark:text-white">
-							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+						<Button size="sm" variant="default" className="flex flex-nowrap items-center gap-x-1.5 px-3 text-sm bg-red-500 hover:bg-destructive dark:text-white">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 								<path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
 							</svg>
 							Supprimer
@@ -130,7 +129,7 @@ export default function PatientProfile() {
 							<CardContent>
 								<Link to="medical-folder">
 									<Button variant="outline" className="flex flex-nowrap items-center gap-x-1.5 px-3  w-full">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 											<path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
 											<path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
 										</svg>
@@ -155,13 +154,13 @@ export default function PatientProfile() {
 							</CardHeader>
 							<CardContent>
 								{patientIsINWaitingRoom ? <Button variant="outline" className="flex flex-nowrap items-center gap-x-1.5 px-3 border-destructive text-destructive hover:text-white hover:bg-destructive w-full">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 											<path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
 										</svg>
 										Sortir de la salle d'attente
 								</Button> :
 									<Button variant="default" className="flex flex-nowrap items-center gap-x-1.5 px-3 dark:bg-secondary dark:text-white w-full">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 											<path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
 										</svg>
 										Entrer à la salle d'attente
@@ -184,7 +183,7 @@ export default function PatientProfile() {
 							<CardContent className="">
 								<Link to="create-laboratory-receipt">
 									<Button variant="outline" className="flex flex-nowrap items-center gap-x-1.5 px-3 w-full">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 											<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
 										</svg>
 										Créer un laboratoire reçu
@@ -207,7 +206,7 @@ export default function PatientProfile() {
 							<CardContent className="">
 								<Link to="create-prescription">
 									<Button variant="default" className="flex flex-nowrap items-center gap-x-1.5 px-3  w-full">
-										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
 											<path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
 										</svg>
 										Créer une ordonnance
@@ -219,43 +218,41 @@ export default function PatientProfile() {
 				</div>
 			</div>
 			<div className="grid grid-cols-4 grid-rows-1 gap-x-2">
-				<div className="row-span-1">
-					<Card className="">
-						<CardHeader className="space-y-0">
-							<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-									<path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-								</svg>
-								Facture
-							</CardTitle>
-							<CardDescription>Le patient n'existe pas encore dans la salle d'attente.</CardDescription>
-						</CardHeader>
-						<CardContent className="px-0">
-							<div className="flex flex-col ">
-								<div className="flex flex-nowrap items-center justify-between py-2  px-6">
-									<div className="font-semibold text-foreground/80">Total :</div>
-									<div className="font-semibold text-foreground/80"> 2500 DH</div>
-								</div>
-								<div className="flex flex-nowrap items-center justify-between py-2  px-6">
-									<div className="font-semibold text-foreground/80">Reçu :</div>
-									<div className="font-semibold text-green-600"> 1500 DH</div>
-								</div>
-								<div className="flex flex-nowrap items-center justify-between border-y py-2 bg-muted px-6">
-									<div className="font-semibold text-foreground/80">Reste :</div>
-									<div className="font-semibold text-red-600"> 1000 DH</div>
-								</div>
-
+				<Card>
+					<CardHeader className="space-y-0">
+						<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+								<path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/>
+							</svg>
+							Facture
+						</CardTitle>
+						<CardDescription>Le patient n'existe pas encore dans la salle d'attente.</CardDescription>
+					</CardHeader>
+					<CardContent className="px-0">
+						<div className="flex flex-col ">
+							<div className="flex flex-nowrap items-center justify-between py-2  px-6">
+								<div className="font-semibold text-foreground/80">Total :</div>
+								<div className="font-semibold text-foreground/80"> 2500 DH</div>
 							</div>
-						</CardContent>
-					</Card>
-				</div>
-				<div className="col-span-3 row-span-1">
+							<div className="flex flex-nowrap items-center justify-between py-2  px-6">
+								<div className="font-semibold text-foreground/80">Reçu :</div>
+								<div className="font-semibold text-green-600"> 1500 DH</div>
+							</div>
+							<div className="flex flex-nowrap items-center justify-between border-y py-2 bg-muted px-6">
+								<div className="font-semibold text-foreground/80">Reste :</div>
+								<div className="font-semibold text-red-600"> 1000 DH</div>
+							</div>
+
+						</div>
+					</CardContent>
+				</Card>
+				<div className="col-span-3 col-start-2">
 					<Card>
 						<CardHeader className="space-y-0 flex flex-row flex-nowrap justify-between items-start">
 							<div>
 								<CardTitle className="text-lg flex flex-nowrap items-center gap-x-2">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-										<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+										<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/>
 									</svg>
 									Les rendez-vous
 								</CardTitle>
@@ -263,7 +260,7 @@ export default function PatientProfile() {
 							</div>
 							<Link to="/create-appointment">
 								<Button variant="outline" size="sm" className="flex items-center flex-nowrap gap-x-2">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-5">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="size-4">
 										<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 9v10a2 2 0 0 0 2 2h6M4 9V7a2 2 0 0 1 2-2h2M4 9h16m0 0V7a2 2 0 0 0-2-2h-2m4 4v3m-4-7V3m0 2H8m0-2v2m11 11v3m0 3v-3m0 0h3m-3 0h-3"></path>
 									</svg>
 									Nouveau rendez-vous
@@ -271,105 +268,115 @@ export default function PatientProfile() {
 							</Link>
 						</CardHeader>
 						<CardContent>
-							<Table>
-								<TableHeader>
-									<TableRow>
-										<TableHead className="w-[100px]">Date</TableHead>
-										<TableHead>Heure</TableHead>
-										<TableHead>Status</TableHead>
-										<TableHead>Motif</TableHead>
-									</TableRow>
-								</TableHeader>
-								<TableBody>
-									<TableRow>
-										<TableCell className="font-medium">02/05/2024</TableCell>
-										<TableCell>14:50 PM</TableCell>
-										<TableCell>
-											<Badge variant="outline" className="bg-blue-200 dark:bg-blue-400 text-blue-700 dark:text-white">en cours</Badge>
-										</TableCell>
-										<TableCell>Extraction dent de sagesse</TableCell>
-										<TableCell className="flex flex-nowrap items-center gap-x-1">
-											<TooltipProvider>
-												<Tooltip>
-													<TooltipTrigger>
-														<Link to="#">
-															<Button size="icon" variant="outline"  className="text-primary hover:text-primary dark:text-secondary dark:hover:text-secondary">
-																<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-																	<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-																</svg>
-															</Button>
-														</Link>
-													</TooltipTrigger>
-													<TooltipContent>
-														<p className="text-primary dark:text-secondary">Modifier le rendez-vous</p>
-													</TooltipContent>
-												</Tooltip>
-											</TooltipProvider>
-											<TooltipProvider>
-												<Tooltip>
-													<TooltipTrigger>
-														<Link to="#">
-															<Button size="icon" variant="outline"  className="text-destructive hover:text-destructive">
-																<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-																	<path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-																</svg>
-															</Button>
-														</Link>
-													</TooltipTrigger>
-													<TooltipContent>
-														<p className="text-destructive dark:text-red-500">Annuler le rendez-vous</p>
-													</TooltipContent>
-												</Tooltip>
-											</TooltipProvider>
-										</TableCell>
-									</TableRow>
-									<TableRow>
-										<TableCell className="font-medium">11/04/2024</TableCell>
-										<TableCell>11:00 AM</TableCell>
-										<TableCell>
-											<Badge variant="outline" className="bg-amber-200 dark:bg-amber-400 text-amber-700 dark:text-white whitespace-nowrap">reporté par le médecin</Badge>
-										</TableCell>
-										<TableCell>Composite</TableCell>
-										<TableCell className="flex flex-nowrap items-center gap-x-1">
-											<TooltipProvider>
-												<Tooltip>
-													<TooltipTrigger>
-														<Link to="#">
-															<Button size="icon" variant="outline"  className="text-primary hover:text-primary dark:text-secondary dark:hover:text-secondary">
-																<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-																	<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-																</svg>
-															</Button>
-														</Link>
-													</TooltipTrigger>
-													<TooltipContent>
-														<p className="text-primary dark:text-secondary">Modifier le rendez-vous</p>
-													</TooltipContent>
-												</Tooltip>
-											</TooltipProvider>
-											<TooltipProvider>
-												<Tooltip>
-													<TooltipTrigger>
-														<Link to="#">
-															<Button size="icon" variant="outline"  className="text-destructive hover:text-destructive">
-																<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-																	<path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-																</svg>
-															</Button>
-														</Link>
-													</TooltipTrigger>
-													<TooltipContent>
-														<p className="text-destructive dark:text-red-500">Annuler le rendez-vous</p>
-													</TooltipContent>
-												</Tooltip>
-											</TooltipProvider>
-										</TableCell>
-									</TableRow>
-								</TableBody>
-							</Table>
+							<div className="border rounded-lg overflow-hidden">
+								<Table>
+									<TableHeader className="bg-muted">
+										<TableRow>
+											<TableHead className="w-[100px]">Date</TableHead>
+											<TableHead>Heure</TableHead>
+											<TableHead>Status</TableHead>
+											<TableHead>Motif</TableHead>
+											<TableHead>Action</TableHead>
+										</TableRow>
+									</TableHeader>
+									<TableBody>
+										<TableRow>
+											<TableCell className="font-medium">02/05/2024</TableCell>
+											<TableCell>14:50 PM</TableCell>
+											<TableCell>
+												<Badge variant="outline" className="bg-blue-200 dark:bg-blue-400 text-blue-700 dark:text-white">en
+													cours</Badge>
+											</TableCell>
+											<TableCell>Extraction dent de sagesse</TableCell>
+											<TableCell className="flex flex-nowrap items-center gap-x-1">
+												<TooltipProvider>
+													<Tooltip>
+														<TooltipTrigger>
+															<Link to="#">
+																<Button size="icon" variant="outline" className="text-primary hover:text-primary dark:text-secondary dark:hover:text-secondary">
+																	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+																		<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/>
+																	</svg>
+																</Button>
+															</Link>
+														</TooltipTrigger>
+														<TooltipContent>
+															<p className="text-primary dark:text-secondary">Modifier le
+																rendez-vous</p>
+														</TooltipContent>
+													</Tooltip>
+												</TooltipProvider>
+												<TooltipProvider>
+													<Tooltip>
+														<TooltipTrigger>
+															<Link to="#">
+																<Button size="icon" variant="outline" className="text-destructive hover:text-destructive">
+																	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+																		<path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12"/>
+																	</svg>
+																</Button>
+															</Link>
+														</TooltipTrigger>
+														<TooltipContent>
+															<p className="text-destructive dark:text-red-500">Annuler le
+																rendez-vous</p>
+														</TooltipContent>
+													</Tooltip>
+												</TooltipProvider>
+											</TableCell>
+										</TableRow>
+										<TableRow>
+											<TableCell className="font-medium">11/04/2024</TableCell>
+											<TableCell>11:00 AM</TableCell>
+											<TableCell>
+												<Badge variant="outline" className="bg-amber-200 dark:bg-amber-400 text-amber-700 dark:text-white whitespace-nowrap">reporté
+													par le médecin</Badge>
+											</TableCell>
+											<TableCell>Composite</TableCell>
+											<TableCell className="flex flex-nowrap items-center gap-x-1">
+												<TooltipProvider>
+													<Tooltip>
+														<TooltipTrigger>
+															<Link to="#">
+																<Button size="icon" variant="outline" className="text-primary hover:text-primary dark:text-secondary dark:hover:text-secondary">
+																	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+																		<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/>
+																	</svg>
+																</Button>
+															</Link>
+														</TooltipTrigger>
+														<TooltipContent>
+															<p className="text-primary dark:text-secondary">Modifier le
+																rendez-vous</p>
+														</TooltipContent>
+													</Tooltip>
+												</TooltipProvider>
+												<TooltipProvider>
+													<Tooltip>
+														<TooltipTrigger>
+															<Link to="#">
+																<Button size="icon" variant="outline" className="text-destructive hover:text-destructive">
+																	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+																		<path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12"/>
+																	</svg>
+																</Button>
+															</Link>
+														</TooltipTrigger>
+														<TooltipContent>
+															<p className="text-destructive dark:text-red-500">Annuler le
+																rendez-vous</p>
+														</TooltipContent>
+													</Tooltip>
+												</TooltipProvider>
+											</TableCell>
+										</TableRow>
+									</TableBody>
+								</Table>
+							</div>
 
 						</CardContent>
 					</Card>
+
 				</div>
 			</div>
 		</div>

@@ -4,7 +4,7 @@ export const laboratoryReceiptFormSchema = z.object({
     idPatient: z.number({
         required_error: "Le patient est requis."
     }).min(0, {message: "Le patient est requis."}),
-    laboratory: z.string({
+    laboratoryName: z.string({
         required_error: "Le laboratoire est requis.",
         invalid_type_error: "Le nom laboratoire doit être une chaîne de caractères.",
         }
