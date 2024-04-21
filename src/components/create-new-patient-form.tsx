@@ -28,7 +28,7 @@ import {z} from "zod";
 import TeethSelection from "@/components/teeth-selection.tsx";
 import PriceReceivedRemain from "@/components/price-received-remain.tsx";
 import { createPatientFormSchema } from "@/zod/schemas/create-patient-form-schema";
-import { cities } from "@/data/cities";
+import citiesJson from "@/data/morocco_cities.json"
 
 
 
@@ -271,9 +271,9 @@ export default function CreateNewcreatePatientForm() {
 															)}
 														>
 															{field.value
-																? cities.find(
-																	(city) => city === field.value
-																)
+																? citiesJson.find(
+																	(element) => element.city === field.value
+																)?.city
 																: "Sélectionner une ville"}
 															<CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 														</Button>
@@ -287,19 +287,19 @@ export default function CreateNewcreatePatientForm() {
 														/>
 														<CommandEmpty>Aucune ville trouvée.</CommandEmpty>
 														<CommandGroup>
-															{cities.map((city, index) => (
+															{citiesJson.map((element, index) => (
 																<CommandItem
-																	value={city}
+																	value={element.city}
 																	key={index}
 																	onSelect={() => {
-																		createPatientForm.setValue("city", city)
+																		createPatientForm.setValue("city", element.city)
 																	}}
 																>
-																	{city}
+																	{element.city}
 																	<CheckIcon
 																		className={cn(
 																			"ml-auto h-4 w-4",
-																			city === field.value
+																			element.city === field.value
 																				? "opacity-100"
 																				: "opacity-0"
 																		)}

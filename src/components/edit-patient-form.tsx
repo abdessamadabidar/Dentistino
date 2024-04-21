@@ -15,7 +15,7 @@ import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/c
 import {CaretSortIcon, CheckIcon} from "@radix-ui/react-icons";
 import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from "@/components/ui/command.tsx";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group.tsx";
-import {cities} from "@/data/cities.ts";
+import citiesJson from "@/data/morocco_cities.json"
 
 
 export type EditPatientForm = z.infer<typeof editPatientFormSchema>
@@ -51,7 +51,7 @@ export default function EditPatientForm() {
 			<div className="flex items-center flex-nowrap gap-x-2">
 				<CardTitle className="text-lg flex items-center gap-x-2">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-						<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+						<path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
 					</svg>
 					Modifier le patient
 				</CardTitle>
@@ -217,9 +217,9 @@ export default function EditPatientForm() {
 													)}
 												>
 													{field.value
-														? cities.find(
-															(city) => city === field.value
-														)
+														? citiesJson.find(
+															(element) => element.city === field.value
+														)?.city
 														: "Sélectionner une ville"}
 													<CaretSortIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 												</Button>
@@ -233,19 +233,19 @@ export default function EditPatientForm() {
 												/>
 												<CommandEmpty>Aucune ville trouvée.</CommandEmpty>
 												<CommandGroup>
-													{cities.map((city, index) => (
+													{citiesJson.map((element, index) => (
 														<CommandItem
-															value={city}
+															value={element.city}
 															key={index}
 															onSelect={() => {
-																editPatientForm.setValue("city", city)
+																editPatientForm.setValue("city", element.city)
 															}}
 														>
-															{city}
+															{element.city}
 															<CheckIcon
 																className={cn(
 																	"ml-auto h-4 w-4",
-																	city === field.value
+																	element.city === field.value
 																		? "opacity-100"
 																		: "opacity-0"
 																)}
