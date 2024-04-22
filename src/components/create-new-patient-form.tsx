@@ -29,6 +29,7 @@ import TeethSelection from "@/components/teeth-selection.tsx";
 import PriceReceivedRemain from "@/components/price-received-remain.tsx";
 import { createPatientFormSchema } from "@/zod/schemas/create-patient-form-schema";
 import citiesJson from "@/data/morocco_cities.json"
+import {acts} from "@/data/acts.ts";
 
 
 
@@ -843,14 +844,46 @@ export default function CreateNewcreatePatientForm() {
 																/>
 															</TableCell>
 															<TableCell>
+																{/*<FormField*/}
+																{/*	control={createPatientForm.control}*/}
+																{/*	key={field.id}*/}
+																{/*	name={`teeth.${index}.observation`}*/}
+																{/*	render={({ field }) => (*/}
+																{/*		<FormItem>*/}
+																{/*			<FormControl>*/}
+																{/*				<Textarea placeholder="Ajouter une observation" {...field} />*/}
+																{/*			</FormControl>*/}
+																{/*			<FormMessage className="text-xs font-normal" />*/}
+																{/*		</FormItem>*/}
+																{/*	)}*/}
+																{/*/>*/}
 																<FormField
 																	control={createPatientForm.control}
-																	key={field.id}
 																	name={`teeth.${index}.observation`}
 																	render={({ field }) => (
 																		<FormItem>
 																			<FormControl>
-																				<Textarea placeholder="Ajouter une observation" {...field} />
+																				<Select
+																					onValueChange={(value) => createPatientForm.setValue("parent.relation", value)}
+																				>
+																					<SelectTrigger className={cn(
+																						field.value || "text-foreground"
+
+																					)}>
+																						<SelectValue placeholder="Sélectionner un acte"></SelectValue>
+																					</SelectTrigger>
+																					<SelectContent>
+																						{acts.map((act: string, key: number) => (<SelectItem key={key} value={act}>{act}</SelectItem>))}
+																						<div className="relative p-1">
+																							<Button variant="outline" size="icon" className="absolute top-[50%] -translate-y-1/2 right-2 size-7">
+																								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+																									<path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+																								</svg>
+																							</Button>
+																							<Input type="text" placeholder="Ajouter un nouveau acte" className="" />
+																						</div>
+																					</SelectContent>
+																				</Select>
 																			</FormControl>
 																			<FormMessage className="text-xs font-normal" />
 																		</FormItem>

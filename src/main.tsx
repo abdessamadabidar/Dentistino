@@ -27,6 +27,8 @@ import EditMedicalFolderPage from "@/pages/edit-medical-folder-page.tsx";
 import EditPasswordPage from "@/pages/edit-password-page.tsx";
 import ArchivePage from "@/pages/archive-page.tsx";
 import CreateNewLaboratoryReceiptPage from "@/pages/create-new-laboratory-receipt-page.tsx";
+import NomenclaturePage from "@/pages/nomenclature-page.tsx";
+
 
 
 
@@ -118,6 +120,10 @@ const router = createBrowserRouter([
             {
                 path: 'archive',
                 element: <ArchivePage />
+            },
+            {
+                path: 'nomenclature',
+                element: <NomenclaturePage />
             },
         ]
     },

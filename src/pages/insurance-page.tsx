@@ -1,7 +1,10 @@
 import {Card, CardContent, CardDescription, CardHeader} from "@/components/ui/card.tsx";
 import {Button} from "@/components/ui/button.tsx";
 
+
+
 export default function InsurancePage() {
+
 
 	return <section>
 		<div className="grid grid-cols-3 gap-5">

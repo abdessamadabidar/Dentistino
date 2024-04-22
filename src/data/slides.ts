@@ -6,5 +6,5 @@
  export const slides: Slide[] = [
 	{image: "/src/assets/radio-1.jpg"},
 	{image: "/src/assets/radio-2.jpg"},
-	{image: "/src/assets/radio-3.jpg"}
+	{image: "/src/assets/radio-3.jpg"},
 ]
