@@ -13,13 +13,13 @@ export default function Archive() {
 			<TabsTrigger className="rounded-md" value="laboratories" >Laboratoires</TabsTrigger>
 		</TabsList>
 		<TabsContent value="patients" className="space-y-4">
-			<ArchivedPatients />
+			<ArchivedPatients/>
 		</TabsContent>
 		<TabsContent value="appointments">
-			<ArchivedAppointments />
+			<ArchivedAppointments/>
 		</TabsContent>
 		<TabsContent value="laboratories">
-			<ArchivedLaboratories />
+			<ArchivedLaboratories/>
 		</TabsContent>
 	</Tabs>
 }

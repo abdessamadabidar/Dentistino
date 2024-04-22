@@ -30,6 +30,7 @@ import CreateNewLaboratoryReceiptPage from "@/pages/create-new-laboratory-receip
 import NomenclaturePage from "@/pages/nomenclature-page.tsx";
 import LaboratoryPage from './pages/laboratory-page';
 import LaboratoryDetailsPage from './pages/laboratory-details-page';
+import DeletePage from "@/pages/delete-page.tsx";
 
 
 
@@ -130,6 +131,10 @@ const router = createBrowserRouter([
             {
                 path: 'archive',
                 element: <ArchivePage />
+            },
+            {
+                path: 'deleted',
+                element: <DeletePage />
             },
             {
                 path: 'nomenclature',

@@ -8,12 +8,12 @@ import Nav from "@/components/nav.tsx";
 export default function DefaultLayout() {
     return (
         <main className="w-full">
-            <ResizablePanelGroup direction="horizontal" >
-                <ResizablePanel defaultSize={4}>
+            <ResizablePanelGroup direction="horizontal">
+                <ResizablePanel defaultSize={20}>
                     <Sidebar/>
                 </ResizablePanel>
                 <ResizableHandle withHandle/>
-                <ResizablePanel >
+                <ResizablePanel defaultSize={80}>
                     <div className="flex-col flex">
                         <div className="border-b ">
                             <div className="flex h-16 items-center px-5">
