@@ -28,6 +28,8 @@ import EditPasswordPage from "@/pages/edit-password-page.tsx";
 import ArchivePage from "@/pages/archive-page.tsx";
 import CreateNewLaboratoryReceiptPage from "@/pages/create-new-laboratory-receipt-page.tsx";
 import NomenclaturePage from "@/pages/nomenclature-page.tsx";
+import LaboratoryPage from './pages/laboratory-page';
+import LaboratoryDetailsPage from './pages/laboratory-details-page';
 
 
 
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
             {
                 path: 'patient/create-laboratory-receipt',
                 element: <CreateNewLaboratoryReceiptPage/>
+            },
+            {
+                path: 'laboratory-page',
+                element: <LaboratoryPage/>
+            },
+            {
+                path: 'laboratory-details',
+                element: <LaboratoryDetailsPage/>
             },
             {
                 path: 'create-patient',

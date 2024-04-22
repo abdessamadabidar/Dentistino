@@ -70,28 +70,30 @@ export default function WaitingRoomPage() : JSX.Element {
 	return (
 		<Card>
 			<CardHeader className="flex flex-row flex-nowrap justify-between items-start">
-				<div>
+				<div className="space-y-2" >
 					<CardTitle className="flex flex-nowrap items-center gap-x-2">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-							<path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-						</svg>
-
-						Salle d'attente
+						<div className="flex items-center gap-x-2">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+								<path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+							</svg>
+							<span className="text-lg">Salle d'attente</span>
+						</div>
 					</CardTitle>
-					<CardDescription className="ml-8 mt-2">Tous les patients qui se trouvent dans la salle d'attente</CardDescription>
+					<CardDescription>Tous les patients qui se trouvent dans la salle d'attente</CardDescription>
 				</div>
 				<Form {...form}>
-					<form>
+				<form>
 						<FormField
 							control={form.control}
 							name="patient"
 							render={() => (
-								<FormItem >
+								<FormItem>
 									<FormControl>
 										<SelectPatientDialog trigger={
-											<Button size="sm" className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary">
-												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
-													<path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+											<Button size="sm"
+													className="flex items-center text-white flex-nowrap gap-x-2 dark:bg-secondary">
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
+													<path strokeLinecap="round" strokeLinejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"/>
 												</svg>
 												Ajouter patient
 											</Button>

@@ -1,7 +1,6 @@
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import {Badge} from "@/components/ui/badge.tsx";
-import {Textarea} from "@/components/ui/textarea.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Link} from "react-router-dom";
 import RadiologyDialog from "@/components/radiology-dialog.tsx";
@@ -60,7 +59,7 @@ export default function PatientMedicalFolder() {
 							<div className="space-y-6">
 								<div className="space-y-2">
 									<h1 className="block text-sm font-semibold text-primary dark:text-secondary">Observation ou Motif de Consultation</h1>
-									<Textarea className=" min-h-32" disabled value={observation}/>
+									<p className="text-sm text-gray-600 dark:text-gray-200">{observation}</p>
 								</div>
 								<div className="space-y-2">
 									<h1 className="block text-sm font-semibold text-primary dark:text-secondary">Traitements</h1>

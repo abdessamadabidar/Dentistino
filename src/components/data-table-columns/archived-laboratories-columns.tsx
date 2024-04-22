@@ -7,53 +7,37 @@ import {
 } from "@/components/ui/dropdown-menu.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {DataTableColumnHeader} from "@/components/data-table-column-header.tsx";
-import {Badge} from "@/components/ui/badge.tsx";
-import {cn} from "@/lib/utils.ts";
+import {Laboratory} from "@/data/laboratories.ts";
 
-
-type Patient = {
-	id: number,
-	firstName: string,
-	lastName: string,
-	phone: string,
-	status: "servi" | "en cours",
-	registeredDate: string,
-}
-
-
-export const columns: ColumnDef<Patient>[] = [
+export const columns: ColumnDef<Laboratory>[] = [
 
 	{
-		accessorKey: "firstName",
+		accessorKey: "laboratoryName",
 		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Prénom" />
+			<DataTableColumnHeader column={column} title="Laboratoire" />
 		),
 	},
 	{
-		accessorKey: "lastName",
+		accessorKey: "patientFullName",
 		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Nom" />
+			<DataTableColumnHeader column={column} title="Patient" />
 		),
 	},
 	{
-		accessorKey: "phone",
-		header: 'Téléphone'
-	},
-	{
-		accessorKey: "status",
-		header: 'Status',
-		cell: props => <Badge variant="outline" className={cn(props.getValue() === 'servi'? "bg-green-200 dark:bg-green-400 text-green-700 dark:text-white" : "bg-blue-200 dark:bg-blue-400 text-blue-700 dark:text-white", "whitespace-nowrap border-0")} >{`${props.getValue()}`}</Badge>
-	},
-	{
-		accessorKey: "registeredDate",
+		accessorKey: "sendDate",
 		header: ({ column }) => (
-			<DataTableColumnHeader column={column} title="Date d'inscription" />
+			<DataTableColumnHeader column={column} title="Date d'envoi" />
+		),
+	},
+	{
+		accessorKey: "shade",
+		header: ({ column }) => (
+			<DataTableColumnHeader column={column} title="Teinte" />
 		),
 	},
 	{
 		id: "actions",
 		cell: () => {
-
 			return (
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
