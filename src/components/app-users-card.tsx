@@ -47,7 +47,6 @@ export function AppUsersCard({users, roles}: AppUsersProps) {
 
 
 
-
 	return (
 		<Card>
 			<CardHeader className="mb-4 flex flex-row justify-between items-center">

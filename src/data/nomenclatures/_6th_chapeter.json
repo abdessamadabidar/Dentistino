@@ -1,0 +1,129 @@
+{
+    "aricles": 
+    [
+        {
+            "titre": "Fractures",
+            "actes":
+            [
+                {
+                    "titre": "",
+                    "description": "",
+                    "elements": 
+                    [
+                        {"code":"D600","description":"Traitement des fractures des procès alvéolaires avec conservation des dents mobiles et déplacées, traitement radiculaire non compris","tarif1":50,"tarif2":20},
+                        {"code":"D601","description":"Traitement orthopédique d'une fracture complète sans déplacement (appareillage compris)","tarif1":60,"tarif2":20},
+                        {"code":"D602","description":"Traitement orthopédique d'une fracture complète avec déplacement (appareillage compris)","tarif1":100,"tarif2":40},
+                        {"code": null, "description": "Traitement d'une disjonction craniofaciale (appareillage compris) :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D603","description":"- Sans déplacement","tarif1":80,"tarif2":30},
+                        {"code":"D604","description":"- Avec déplacement","tarif1":120,"tarif2":50},
+                        {"code":"D605","description":"Traitement d'une fracture complète et simultanée des deux maxillaires (appareillage compris)","tarif1":150,"tarif2":80},
+                        {"code":"D606","description":"Traitement sanglant complet par ostéosynthèse des fractures des maxillaires de l'os malaire ou du zygoma, quelle que soit leur forme anatomique (contention comprise).","tarif1":100,"tarif2":40},
+                        {"code": null, "description": "Traitement chirurgical d'une pseudarthrose (prélèvement des greffons compris), voir traitement sanglant complet d'une fracture d'un maxillaire, avec supplément 50p. 100", "tarif1": 0, "tarif2": 0}
+                    ]
+                }
+            ]
+        },
+        {
+            "titre": "Lésions infectieuses",
+            "actes": 
+            [
+                {
+                    "titre": "",
+                    "description": "",
+                    "elements": 
+                    [
+                        {"code":"D607","description":"Curetage et ablation des séquestres pour ostéite et nécrose des maxillaires circonscrites à la région alvéolaire","tarif1":10,"tarif2":0},
+                        {"code":"D608","description":"Curetage et ablation des séquestres pour ostéite ou nécrose du corps maxillaire (radiographie indispensable)","tarif1":50,"tarif2":20}
+                    ]
+                }
+            ]
+        },
+        {
+            "titre": "Malformations et tumeurs",
+            "actes": 
+            [
+                {
+                    "titre": "",
+                    "description": "",
+                    "elements": 
+                    [
+                        {"code":"D609","description":"Prélèvement osseux important ou trépanation d'un maxillaire pour examen histologique","tarif1":30,"tarif2":20},
+                        {"code":"D610","description":"Ablation d'une tumeur bénigne des maxillaires ayant entraîné un vaste délabrement osseux","tarif1":80,"tarif2":30},
+                        {"code": null, "description": "Ostétomie unilatérale du maxillaire inférieur :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D611","description":"* Par voie exobuccale","tarif1":80,"tarif2":30},
+                        {"code":"D612","description":"* Par voie endobuccale","tarif1":100,"tarif2":40},
+                        {"code":"D613","description":"Ostéotomie segmentaire pour prognathie ou rétrognathie supérieure","tarif1":150,"tarif2":60},
+                        {"code":"D614","description":"Ostéotomie totale pour prognathie ou rétrognathie supérieure (greffe osseuse comprise)","tarif1":200,"tarif2":90},
+                        {"code": null, "description": "Traitement chirurgical de la prognathie ou rétrognathie inférieure par ostéotomie bilatérale :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D615","description":"* Par voie exobuccale","tarif1":150,"tarif2":60},
+                        {"code":"D616","description":"* Par voie endobuccale","tarif1":200,"tarif2":90},
+                        {"code":"D617","description":"Résection par voie endo-buccale d'un segment mandibulaire n'intéressant pas l'os alvéolaire sans interruption de la continuité osseuse","tarif1":50,"tarif2":20},
+                        {"code":"D618","description":"Résection d'un segment mandibulaire avec interruption de la continuité, quel que soit le procédé (prothèse dentaire éventuelle non comprise)","tarif1":120,"tarif2":40},
+                        {"code":"D619","description":"Résection totale d'un hémimaxillaire inférieur ou du maxillaire supérieur (prothèse dentaire éventuelle non comprise)","tarif1":120,"tarif2":50},
+                        {"code":"D620","description":"Endo-prothèse de reconstitution du maxillaire, de la mandibule","tarif1":130,"tarif2":60}
+                    ]
+                }
+            ]
+        },
+        {
+            "titre": "Articulation temporo-maxillaire",
+            "actes": 
+            [
+                {
+                    "titre": "",
+                    "description": "",
+                    "elements": 
+                    [
+                        {"code": "D621", "description":  "Traitement orthopédique de luxation uni ou bilatérale récente de la mandibule", "tarif1":5, "tarif2":0},
+                        {"code": "D622", "description":  "Traitement des plaies, traitement opératoire des lésions de l'articulation temporo-maxillaire, septiques ou aseptiques, quelle que soit la technique", "tarif1":40, "tarif2":20},
+                        {"code": "D623", "description":  "Méniscectomie unilatérale, résection du condyle", "tarif1":80, "tarif2":30},
+                        {"code": "D624", "description":  "Réduction sanglante de la luxation temporo-maxillaire", "tarif1":80, "tarif2":30},
+                        {"code": "D625", "description":  "Arthroplastie, traitement chirurgical d'une constriction permanente, par articulation (endo-prothèse non comprise)", "tarif1":100, "tarif2":50}
+                    ]
+                }
+            ]
+        },
+        {
+            "titre": "Orthopédie dento-faciale",
+            "actes": 
+            [
+                {
+                    "titre": "Examens",
+                    "description": "",
+                    "elements": [
+                        {"code":"D626","description":"Examen avec prise d'empreinte diagnostic et durée probable du traitement (les examens spéciaux concourant à l'établissement de ce diagnostic, et notamment radiographie dentaire, radiographie et téléradiographie de la tête sont remboursés en sus)","tarif1":15,"tarif2":0},
+                        {"code":"D627","description":"* Avec analyse céphalométrique, en supplément","tarif1":5,"tarif2":0}
+                    ]
+                },
+                {
+                    "titre": "Traitements",
+                    "description": "Rééducation de la déglutition, rééducation de l'articulation de la parole :",
+                    "elements": 
+                    [
+                        {"code":"D628","description":"Par série de douze séances éventuellement renouvelables, chaque séance","tarif1":5,"tarif2":0},
+                        {"code": null, "description": "Lorsque la rééducation et le traitement sont effectués par le même praticien, la cotation de la rééducation ne peut en aucun cas, s'ajouter à la cotation globale prévue pour le traitement d'orthopédie dento-faciale.", "tarif1": 0, "tarif2": 0},
+                        {"code": null, "description": "Traitement des dysmorphoses :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D629","description":"- Par période de six mois","tarif1":90,"tarif2":0},
+                        {"code":"D630","description":"- Avec un plafond de","tarif1":540,"tarif2":0},
+                        {"code": null, "description": "En cas d'interruption provisoire du traitement :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D631","description":"- Séance de surveillance","tarif1":5,"tarif2":0},
+                        {"code":"D632","description":"- Première année","tarif1":75,"tarif2":0},
+                        {"code":"D633","description":"- Deuxième année","tarif1":50,"tarif2":0},
+                        {"code": null, "description": "Mise en place sur l'arcade, jusqu'au 18ème anniversaire :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D634","description":"- D'une canine incluse","tarif1":150,"tarif2":0},
+                        {"code":"D635","description":"- De deux canines incluses","tarif1":200,"tarif2":0},
+                        {"code":null,"description":"Contention après traitement orthodontique : Un avis technique favorable pour la contention ne peut être donné que si le traitement a donné des résultats positifs et dans la mesure où il se justifie techniquement :","tarif1":0,"tarif2":0},
+                        {"code":"D636","description":"- première année","tarif1":75,"tarif2":0},
+                        {"code":"D637","description":"- deuxième année","tarif1":50,"tarif2":0},
+                        {"code":"D638","description":"Disjonction intrarmaxillaire rapide pour dysmorphose maxillaire en cas d'insuffisance respiratoire confirmée","tarif1":180,"tarif2":0},
+                        {"code": null, "description": "Orthopédie des malformations consécutives au bec-de-lièvre total ou à la division palatine :", "tarif1": 0, "tarif2": 0},
+                        {"code":"D639","description":"- forfait annuel, par année","tarif1":200,"tarif2":0},
+                        {"code":"D640","description":"- en période d'attente","tarif1":60,"tarif2":0},
+                        {"code":"D641","description":"Traitement d'orthopédie dento-faciale au delà du seizième anniversaire, préalable à une intervention chirurgicale portant sur les maxillaires, pour une période de six mois non renouvelable","tarif1":90,"tarif2":0}
+                    ]
+                }
+            ]
+            
+        }
+    ]
+}

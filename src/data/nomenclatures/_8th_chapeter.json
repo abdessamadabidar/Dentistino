@@ -1,0 +1,26 @@
+{
+    "titre": "Prothèse restauratrice maxillo-faciale",
+    "description": "Appareillage par obturateur (prothèse dentaire éventuelle non comprise) :",
+    "actes":
+    [
+        {"code":"D800","description":"pour perforation palatine de moins de 1 cm","tarif1":25,"tarif2":null},
+        {"code": null, "description": "pour perte de substance du maxillaire ou de la mandibule (par exemple résection chirurgicale, électrocoagulation) :", "tarif1": null, "tarif2": null},
+        {"code":"D801","description":"- s'il s'agit d'une prothèse partielle","tarif1":40,"tarif2":null},
+        {"code":"D802","description":"- s'il s'agit d'une prothèse complète","tarif1":80,"tarif2":null},
+        {"code":"D803","description":"pour perte de substance vélopalatine","tarif1":100,"tarif2":null},
+        {"code":"D804","description":"Prothèse à étages pour résection élargie du maxillaire supérieur (prothèse dentaire non comprise)","tarif1":150,"tarif2":null},
+        {"code":"D805","description":"Chapes de recouvrement (support de prothèse vélopalatine), par élément","tarif1":25,"tarif2":null},
+        {"code":"D806","description":"Prothèse de recouvrement pour correction de l'articulé","tarif1":60,"tarif2":null},
+        {"code":"D807","description":"Appareillage de contention ou de réduction pré-opératoire et post- opératoire du maxillaire ou de la mandibule (résection chirurgicale ou greffe)","tarif1":130,"tarif2":null},
+        {"code":"D808","description":"Appareillage par mobilisateur du maxillaire inférieur (quel que soit le modèle)","tarif1":80,"tarif2":null},
+        {"code":"D809","description":"Appareillage par appui péricrânien","tarif1":60,"tarif2":null},
+        {"code": null, "description": "Appareillage par appareil guide", "tarif1": null, "tarif2": null},
+        {"code":"D810","description":"* sur une arcade","tarif1":40,"tarif2":null},
+        {"code":"D811","description":"* sur deux arcades","tarif1":80,"tarif2":null},
+        {"code":"D812","description":"Appareillage de distension des cicatrices vicieuses","tarif1":80,"tarif2":null},
+        {"code":"D813","description":"Appareil porte-radium ou appareil de protection des maxillaires pour radiations ionisantes","tarif1":80,"tarif2":null},
+        {"code":"D814","description":"Appareillage de redressement nasal avec point d'appui dento-maxillaire ou péricrânien","tarif1":140,"tarif2":null},
+        {"code":"D815","description":"Moulage facial","tarif1":20,"tarif2":null},
+        {"code":"D816","description":"Prothèse plastique faciale (par exemple, du pavillon de l'oreille ou du nez) ; prise en charge, après accord préalable, suivant devis du praticien traitant.","tarif1":null,"tarif2":null}
+    ]
+}

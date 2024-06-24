@@ -1,0 +1,325 @@
+{
+    "sections": 
+    [
+        {
+            "titre": "Soins conservateurs",
+            "description": "L'anesthésie locale ou régionale par infiltration, pratiquée pour des actes de cette rubrique, ne donne pas lieu à cotation",
+            "articles": 
+            [
+                {
+                    "titre": "Obturations dentaires définitives",
+                    "sousArticles": 
+                    [
+                        {
+                            "sousTitre": "",
+                            "actes":
+                            [
+                                {
+                                    "description": "",
+                                    "elements": 
+                                    [
+                                        {"code":"D700","description":"1) Cavité simple, traitement global","tarif1":10,"tarif2":"''"},
+                                        {"code": "", "description": "L'obturation de plusieurs cavités simples sur la même face ne peut être que pour une seule obturation composée intéressant deux faces)", "tarif1": "", "tarif2": ""},
+                                        {"code":"D701","description":"2) Cavité composée, traitement global intéressant 2 faces","tarif1":10,"tarif2":""},
+                                        {"code":"D702","description":"3) Cavité composée, traitement global intéressant 3 faces et plus","tarif1":15,"tarif2":""},
+                                        {"code": "", "description": "4) Soins de la pulpe et des canaux (ces soins ne peuvent être remboursés que si l'obturation a été effectuée à l'aide d'une pâte radio-opaque).", "tarif1": "", "tarif2": ""},
+                                        {"code":"D703","description":"Pulpotomie, pulpectomie coronaire avec obturation de la chambre pulpaire (traitement global)","tarif1":7,"tarif2":""},
+                                        {"code": "", "description": "Pulpectoimie coronaire et radiculaire avec obturation des canaux et soins consécutifs à une gangrène pulpaire (traitement global) :", "tarif1": "", "tarif2": ""},
+                                        {"code":"D704","description":"- Groupe inciso-canin","tarif1":10,"tarif2":""},
+                                        {"code":"D705","description":"- Groupe prémolaires","tarif1":15,"tarif2":""},
+                                        {"code":"D706","description":"- Groupe molaires","tarif1":25,"tarif2":""},
+                                        {"code": "", "description": "Les actes ci-dessus énoncés sont majorés de 50% lorsqu'ils s'appliquent à des dents permanentes sur des enfants de moins de 13 ans.", "tarif1": "", "tarif2": ""},
+                                        {"code":"D707","description":"5° Restauration d'une perte de substance intéressant deux faces et plus d'une dent par matériau inséré en phase plastique avec ancrage radiculaire","tarif1":33,"tarif2":""},
+                                        {"code": "", "description": "Pour les actes mentionnés au 4 ci-dessus, une radiographie pré-opératoire et une radiographie post-opératoire sont obligatoires", "tarif1": "", "tarif2": ""}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titre": "Hygiène bucco-dentaire et soins parodontiques",
+                    "sousArticles":
+                    [
+                        {
+                            "sousTitre": "",
+                            "actes":
+                            [
+                                {
+                                    "description": "",
+                                    "elements":
+                                    [
+                                        {"code":"D708","description":"Détartrage complet sus et sous-gingival (effectué en deux séances au maximum), par séance","tarif1":12,"tarif2":""},
+                                        {"code":"D709","description":"Ligature métallique dans les parodontopathies","tarif1":8,"tarif2":""},
+                                        {"code":"D710","description":"Attelle métallique dans les parodontopathies","tarif1":40,"tarif2":""},
+                                        {"code":"D711","description":"Prothèse attelle de contention quel que soit le nombre de dents ou de crochets","tarif1":70,"tarif2":""},
+                                        {"code":"D712","description":"Scellement prophylactique des puits, sillons et fissures, par dent","tarif1":8,"tarif2":""},
+                                        {"code": "", "description": "La prise en charge de l'acte ci-dessus par l'assurance maladie est limitée aux 1re et 2e molaires permanentes et ne peut intervenir qu'une fois par dent. Cet acte doit être réalisé en cas de risque carieux jusqu'à l'âge de quatorze ans, sauf disposition réglementaire contraire.", "tarif1": "", "tarif2": ""}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "titre": "Soins chirurgicaux",
+            "description": "",
+            "articles": 
+            [
+                {
+                    "titre": "Extractions",
+                    "sousArticles": 
+                    [
+                        {
+                            "sousTitre": "",
+                            "actes":
+                            [
+                                {
+                                    "description": "L'anesthésie locale ou loco-régionale pour les actes de cette section ne donne pas lieu à cotation.",
+                                    "elements":
+                                    [
+                                        {"code":"D713","description":"* d'une dent permanente","tarif1":10,"tarif2":""},
+                                        {"code":"D714","description":"* de chacune des suivantes au cours de la même séance","tarif1":5,"tarif2":""},
+                                        {"code":"D715","description":"* d'une dent lactéale, quelle que soit la technique","tarif1":8,"tarif2":""},
+                                        {"code":"D716","description":"* de chacune des suivantes au cours de la même séance","tarif1":4,"tarif2":""},
+                                        {"code":"D717","description":"Extraction d'une dent par alvéolectomie","tarif1":10,"tarif2":""}
+                                    ]
+                                },
+                                {
+                                    "description": "Lorsque les extractions sont effectuées sous anesthésie générale, les cotations à retenir concernant cette anesthésie sont pour :",
+                                    "elements": 
+                                    [
+                                        {"code":"D718","description":"* une à douze extractions","tarif1":25,"tarif2":""},
+                                        {"code":"D719","description":"* treize et au-dessus","tarif1":30,"tarif2":""}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "sousTitre": "Pour les actes qui suivent, une radiographie pré-opératoire est obligatoire:",
+                            "actes":
+                            [
+                                {
+                                    "description": "Extraction des dents de sagesse incluses, enclavées ou à l'état. de germe :",
+                                    "elements": 
+                                    [
+                                        {"code":"D720","description":"* La première","tarif1":40,"tarif2":""},
+                                        {"code":"D721","description":"* Chacune des suivantes au cours de la même séance","tarif1":20,"tarif2":""}
+                                    ]
+                                },
+                                {
+                                    "description": "Lorsque les extractions de dents de sagesse incluses, enclavées ou à l'état de germe, sont effectuées sous anesthésie générale, les cotations à retenir concernant cette anesthésie sont :",
+                                    "elements": 
+                                    [
+                                        {"code":"D722","description":"* Pour une dent","tarif1":"","tarif2":25},
+                                        {"code":"D723","description":"* Pour deux dents ou plus","tarif1":"","tarif2":40},
+                                        {"code":"D724","description":"Germectomie pour une autre dent que la dent de sagesse","tarif1":20,"tarif2":""},
+                                        {"code":"D725","description":"Extraction d'une dent incluse ou enclavée","tarif1":40,"tarif2":""},
+                                        {"code":"D726","description":"Extraction d'une canine incluse","tarif1":50,"tarif2":30},
+                                        {"code":"D727","description":"Extraction d'une odontoïde ou d'une dent surnuméraire incluse ou enclavée","tarif1":40,"tarif2":""},
+                                        {"code":"D728","description":"Extraction d'une dent en désinclusion non enclavée, dont la couronne est sous-muqueuse","tarif1":20,"tarif2":""},
+                                        {"code":"D729","description":"Extraction d'une dent en désinclusion dont la couronne est sous muqueuse en position palatine ou linguale","tarif1":50,"tarif2":30},
+                                        {"code":"D730","description":"Extraction d'une dent ectopique et incluse (coroné, gonion, branche montante, bord basilaire de la branche et du menton, sinus)","tarif1":80,"tarif2":30},
+                                        {"code": "", "description": "Extraction chirurgicale d'une dent permanente incluse, traitement radiculaire éventuel, réimplantation, contention :", "tarif1": "", "tarif2": ""},
+                                        {"code":"D731","description":"* D'une dent","tarif1":100,"tarif2":30},
+                                        {"code":"D732","description":"* De deux dents","tarif1":150,"tarif2":40}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titre": "Traitement des lésions osseuses et gingivales",
+                    "sousArticles": 
+                    [
+                        {
+                            "sousTitre": "",
+                            "actes": 
+                            [
+                                {
+                                    "description": "",
+                                    "elements": 
+                                    [
+                                        {"code":"D733","description":"Trépanation du sinus maxillaire, par voie vestibulaire, pour recherche d'une racine dentaire","tarif1":40,"tarif2":""},
+                                        {"code":"D734","description":"Dégagement chirurgical de la couronne d'une dent permanente incluse","tarif1":30,"tarif2":""},
+                                        {"code": "", "description": "Régularisation d'une crête alvéolaire avec suture gingivale :", "tarif1": "", "tarif2": ""},
+                                        {"code":"D735","description":"* Localisée, et dans une autre séance que celle de l'extraction","tarif1":5,"tarif2":""},
+                                        {"code":"D736","description":"* Etendue à la crête d'un hémimaxillaire ou de canine à canine","tarif1":15,"tarif2":""},
+                                        {"code":"D737","description":"* Etendue à la totalité de la crête","tarif1":30,"tarif2":""},
+                                        {"code":"D738","description":"Curetage périapical avec ou sans résection apicale (radiographie obligatoire, traitement et obturation du canal non compris)","tarif1":15,"tarif2":""},
+                                        {"code": "", "description": "Exérèse chirurgicale d'un kyste (radiographie obligatoire) :", "tarif1": "", "tarif2": ""},
+                                        {"code":"D739","description":"* Kyste de petit volume par voie alvéolaire élargie","tarif1":15,"tarif2":""},
+                                        {"code":"D740","description":"* Kyste étendu aux apex de deux dents et nécessitant une trépanation osseuse","tarif1":30,"tarif2":""},
+                                        {"code":"D741","description":"* Kyste étendu à un segment important du maxillaire","tarif1":50,"tarif2":30}
+                                    ]
+                                },
+                                {
+                                    "description": "Pour la cure d'un kyste par marsupialisation, les coefficients sont de 50% des précédents.",
+                                    "elements":
+                                    [
+                                        {"code":"D742","description":"Gingivectomie partielle","tarif1":5,"tarif2":""},
+                                        {"code":"D743","description":"Gingivectomie étendue à un sextant : (de canine à canine, de prémolaire à dent de sagesse)","tarif1":20,"tarif2":""},
+                                        {"code":"D744","description":"Traitement d'une hémorragie post-opératoire dans une séance autre que celle de l'intervention","tarif1":10,"tarif2":""}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titre": "Chirurgie préprothétique (prothèse immédiate non comprise)",
+                    "sousArticles": [
+                        {
+                            "sousTitre": "",
+                            "actes": 
+                            [
+                                {
+                                    "description": "Désinsertion musculaire",
+                                    "elements": 
+                                    [
+                                        {"code":"D745","description":"1° D'un vestibule supérieur ou inférieur","tarif1":40,"tarif2":20},
+                                        {"code":"D746","description":"2° Du plancher de la bouche avec section des mylohyoïdiens","tarif1":60,"tarif2":20},
+                                        {"code":"D747","description":"3° Approfondissement d'un vestibule par greffe cutanée","tarif1":40,"tarif2":20}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "titre": "Prothèse dentaire",
+            "description": "",
+            "articles": 
+            [
+                {
+                    "titre": "Prothèse dentaire conjointe",
+                    "sousArticles": 
+                    [
+                        {
+                            "sousTitre": "Les couronnes dentaires :",
+                            "actes": 
+                            [
+                                {
+                                    "description": "1) Couronnes ajustées (face occlusale coulée) :",
+                                    "elements":
+                                    [
+                                        {"code":"D748","description":"* Couronnes en acier ou en nickel chromé.","tarif1":40,"tarif2":""},
+                                        {"code":"D749","description":"* Couronnes en or jaune ou en métaux précieux","tarif1":60,"tarif2":""},
+                                        {"code":"D750","description":"2) Couronnes coulées en acier ou en nickel chromé","tarif1":50,"tarif2":""},
+                                        {"code":"D751","description":"* Couronnes coulées en or jaune ou métaux précieux","tarif1":80,"tarif2":""},
+                                        {"code":"D752","description":"* Couronnes à incrustation vestibulaire ou couronnes veneer en acier","tarif1":75,"tarif2":""},
+                                        {"code":"D753","description":"* Couronnes à incrustation vestibulaire en or jaune ou en métaux précieux","tarif1":120,"tarif2":""},
+                                        {"code":"D754","description":"* Couronnes céramo-métal","tarif1":180,"tarif2":""},
+                                        {"code":"D755","description":"* Couronnes jacket céramo-métal","tarif1":180,"tarif2":""},
+                                        {"code":"D756","description":"* Couronnes jacket cuite","tarif1":40,"tarif2":""}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "sousTitre": "Les bridges dentaires :",
+                            "actes": 
+                            [
+                                {
+                                    "description": "",
+                                    "elements": 
+                                    [
+                                        {"code":"D757","description":"Chaque élément du bridge sera compté comme couronne unitaire de même nature","tarif1":"","tarif2":""}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "sousTitre": "Les inlay-cores en or jaune ou métal précieux :",
+                            "actes": 
+                            [
+                                {
+                                    "description": "",
+                                    "elements": 
+                                    [
+                                        {"code":"D758","description":"* Sur dents uniradiculaires","tarif1":80,"tarif2":""},
+                                        {"code":"D759","description":"* Sur dents pluriradiculaires","tarif1":100,"tarif2":""}
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "sousTitre": "Les dents à pivots esthétiques :",
+                            "actes": 
+                            [
+                                {
+                                    "description": "",
+                                    "elements": 
+                                    [
+                                        {"code":"D760","description":"* En or jaune ou métaux précieux","tarif1":150,"tarif2":""}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "titre": "Prothèse dentaire adjointe",
+                    "sousArticles": 
+                    [
+                        {
+                            "sousTitre": "",
+                            "actes": 
+                            [
+                                {
+                                    "description": "Appareillage (appareil compris) au moyen d'un appareil sur plaque base en matière plastique d'un édentement :",
+                                    "elements": 
+                                    [
+                                        {"code":"D761","description":"* D'une à trois dents","tarif1":40,"tarif2":""},
+                                        {"code":"D762","description":"* De quatre dents","tarif1":45,"tarif2":""},
+                                        {"code":"D763","description":"* De cinq dents","tarif1":50,"tarif2":""},
+                                        {"code":"D764","description":"* De six dents","tarif1":55,"tarif2":""},
+                                        {"code":"D765","description":"* De sept dents","tarif1":60,"tarif2":""},
+                                        {"code":"D766","description":"* De huit dents","tarif1":65,"tarif2":""},
+                                        {"code":"D767","description":"* De neuf dents","tarif1":70,"tarif2":""},
+                                        {"code":"D768","description":"* De dix dents","tarif1":75,"tarif2":""},
+                                        {"code":"D769","description":"* De onze dents","tarif1":80,"tarif2":""},
+                                        {"code":"D770","description":"* De douze dents","tarif1":85,"tarif2":""},
+                                        {"code":"D771","description":"* De treize dents","tarif1":90,"tarif2":""},
+                                        {"code":"D772","description":"* De quatorze dents","tarif1":95,"tarif2":""},
+                                        {"code":"D773","description":"Prothèse adjointe totale du maxillaire supérieur","tarif1":120,"tarif2":""},
+                                        {"code":"D774","description":"Prothèse adjointe totale du maxillaire inférieur","tarif1":120,"tarif2":""},
+                                        {"code":"D775","description":"Supplément pour plaque base métallique","tarif1":120,"tarif2":""},
+                                        {"code":"D776","description":"Supplément pour dent prothétique contreplaquée sur plaque base en matière plastique","tarif1":10,"tarif2":""},
+                                        {"code":"D777","description":"Supplément pour dent prothétique contreplaquée ou massive sur plaque base métallique","tarif1":15,"tarif2":""},
+                                        {"code":"D778","description":"Réparation de fractures de la plaque base en matière plastique","tarif1":10,"tarif2":""},
+                                        {"code":"D779","description":"Réparation de fractures de la plaque base métallique, non compris, s'il y a lieu, le remontage des dents sur matière plastique","tarif1":15,"tarif2":""}
+                                    ]
+                                },
+                                {
+                                    "description": "Dents ou crochets ajoutés ou remplacés sur appareil en matière plastique, ou à chassis métallique",
+                                    "elements": 
+                                    [
+                                        {"code":"D780","description":"* premier élément :","tarif1":10,"tarif2":""},
+                                        {"code":"D781","description":"* les suivants, sur le même appareil :","tarif1":5,"tarif2":""},
+                                        {"code":"D782","description":"Dents contreplaquées ou massives et crochets, soudés, ajoutés ou remplacés sur appareil métallique, par élément :","tarif1":20,"tarif2":""},
+                                        {"code":"D783","description":"Dents ou crochets remontés sur matière plastique, après réparation de la plaque base métallique, par élément :","tarif1":3,"tarif2":""},
+                                        {"code":"D784","description":"Remplacement de facette","tarif1":8,"tarif2":""}
+                                    ]
+                                },
+                                {
+                                    "description": "Prothèse partielle avec système d'attachement :",
+                                    "elements":
+                                    [
+                                        {"code":"D785","description":"L'attachement est en supplément sur la cotation de la plaque métallique","tarif1":40,"tarif2":""}
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+    
+}

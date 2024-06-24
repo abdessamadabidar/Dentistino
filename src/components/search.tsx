@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input.tsx"
 import {cn} from "@/lib/utils.ts";
+import { LucideSearch } from "lucide-react";
 
 interface SearchProps {
 	placeholder?: string,
@@ -10,7 +11,8 @@ interface SearchProps {
 
 function Search({placeholder, value, onChange, className} : SearchProps) {
 	return (
-		<div className="w-full">
+		<div className="relative">
+			<LucideSearch className="size-4 absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
 			<Input
 				type="search"
 				placeholder={placeholder}
